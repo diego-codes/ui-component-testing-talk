@@ -7,7 +7,7 @@ exports[`OverflowMenu Behavior closes menu when user clicks outside of menu 1`] 
     data-testid="overflow-menu"
   >
     <button
-      class="sc-bwzfXH sc-htpNat eAlMUr"
+      class="sc-bwzfXH sc-htpNat gTrUOb"
       data-testid="overflow-menu-toggle"
     >
       Toggle menu
@@ -23,23 +23,23 @@ exports[`OverflowMenu Behavior does not close menu when user clicks inside of me
     data-testid="overflow-menu"
   >
     <button
-      class="sc-bwzfXH sc-htpNat kTndcW"
+      class="sc-bwzfXH sc-htpNat tfKyv"
       data-testid="overflow-menu-toggle"
       open=""
     >
       Toggle menu
     </button>
     <div
-      class="sc-ifAKCX byGAYA"
+      class="sc-ifAKCX dEJfdm"
     >
       <button
-        class="sc-bwzfXH sc-bxivhb hUTeng"
+        class="sc-bwzfXH sc-bxivhb cCHJQU"
         data-testid="option"
       >
         Option 1
       </button>
       <button
-        class="sc-bwzfXH sc-bxivhb hUTeng"
+        class="sc-bwzfXH sc-bxivhb cCHJQU"
       >
         Option 2
       </button>
@@ -55,7 +55,7 @@ exports[`OverflowMenu Behavior hides options when toggle button is pressed twice
     data-testid="overflow-menu"
   >
     <button
-      class="sc-bwzfXH sc-htpNat eAlMUr"
+      class="sc-bwzfXH sc-htpNat gTrUOb"
       data-testid="overflow-menu-toggle"
     >
       Toggle menu
@@ -71,22 +71,22 @@ exports[`OverflowMenu Behavior renders options when opened 1`] = `
     data-testid="overflow-menu"
   >
     <button
-      class="sc-bwzfXH sc-htpNat kTndcW"
+      class="sc-bwzfXH sc-htpNat tfKyv"
       data-testid="overflow-menu-toggle"
       open=""
     >
       Toggle menu
     </button>
     <div
-      class="sc-ifAKCX byGAYA"
+      class="sc-ifAKCX dEJfdm"
     >
       <button
-        class="sc-bwzfXH sc-bxivhb hUTeng"
+        class="sc-bwzfXH sc-bxivhb cCHJQU"
       >
         Option 1
       </button>
       <button
-        class="sc-bwzfXH sc-bxivhb hUTeng"
+        class="sc-bwzfXH sc-bxivhb cCHJQU"
       >
         Option 2
       </button>
@@ -102,7 +102,7 @@ exports[`OverflowMenu Structure renders closed 1`] = `
     data-testid="overflow-menu"
   >
     <button
-      class="sc-bwzfXH sc-htpNat eAlMUr"
+      class="sc-bwzfXH sc-htpNat gTrUOb"
       data-testid="overflow-menu-toggle"
     >
       Toggle menu
