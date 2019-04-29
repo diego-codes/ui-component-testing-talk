@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, queryByTestId, queryAllByText } from 'react-testing-library';
+import { render, queryByTestId, queryAllByText, fireEvent } from 'react-testing-library';
+import { axe } from 'jest-axe';
 import BusinessCard from '.';
 
 const contact = {
@@ -77,7 +78,7 @@ describe(BusinessCard.name, () => {
       const { getByTestId } = render(<BusinessCard {...contact} online />);
       const overflowMenu = getByTestId('overflow-menu');
       const overflowMenuToggleButton = getByTestId('overflow-menu-toggle');
-      overflowMenuToggleButton.click();
+      fireEvent.click(overflowMenuToggleButton);
       const options = queryAllByText(overflowMenu, /chat/i);
       expect(options).toHaveLength(1);
     });
@@ -86,7 +87,7 @@ describe(BusinessCard.name, () => {
       const { getByTestId } = render(<BusinessCard {...contact} phone={phone} />);
       const overflowMenu = getByTestId('overflow-menu');
       const overflowMenuToggleButton = getByTestId('overflow-menu-toggle');
-      overflowMenuToggleButton.click();
+      fireEvent.click(overflowMenuToggleButton);
       const options = queryAllByText(overflowMenu, /call|sms/i);
       expect(options).toHaveLength(3);
     });
@@ -95,7 +96,7 @@ describe(BusinessCard.name, () => {
       const { getByTestId } = render(<BusinessCard {...contact} email={email} />);
       const overflowMenu = getByTestId('overflow-menu');
       const overflowMenuToggleButton = getByTestId('overflow-menu-toggle');
-      overflowMenuToggleButton.click();
+      fireEvent.click(overflowMenuToggleButton);
       const options = queryAllByText(overflowMenu, /email/i);
       expect(options).toHaveLength(1);
     });
@@ -129,19 +130,19 @@ describe(BusinessCard.name, () => {
 
     it('renders chat menu options when contact is online', () => {
       const { container, getByTestId } = render(<BusinessCard {...contact} online />);
-      getByTestId('overflow-menu-toggle').click();
+      fireEvent.click(getByTestId('overflow-menu-toggle'));
       expect(container).toMatchSnapshot();
     });
 
     it('renders phone number menu options when phone number is provided', () => {
       const { container, getByTestId } = render(<BusinessCard {...contact} phone={phone} />);
-      getByTestId('overflow-menu-toggle').click();
+      fireEvent.click(getByTestId('overflow-menu-toggle'));
       expect(container).toMatchSnapshot();
     });
 
     it('renders email menu options when email is provided', () => {
       const { container, getByTestId } = render(<BusinessCard {...contact} email={email} />);
-      getByTestId('overflow-menu-toggle').click();
+      fireEvent.click(getByTestId('overflow-menu-toggle'));
       expect(container).toMatchSnapshot();
     });
   });
@@ -152,8 +153,8 @@ describe(BusinessCard.name, () => {
       const { getByTestId, getByText } = render(
         <BusinessCard {...contact} online onChat={chatMock} />
       );
-      getByTestId('overflow-menu-toggle').click();
-      getByText(/chat/i).click();
+      fireEvent.click(getByTestId('overflow-menu-toggle'));
+      fireEvent.click(getByText(/chat/i));
       expect(chatMock).toHaveBeenCalled();
     });
 
@@ -162,8 +163,8 @@ describe(BusinessCard.name, () => {
       const { getByTestId, getByText } = render(
         <BusinessCard {...contact} phone={phone} onVoiceCall={voiceCallMock} />
       );
-      getByTestId('overflow-menu-toggle').click();
-      getByText(/voice call/i).click();
+      fireEvent.click(getByTestId('overflow-menu-toggle'));
+      fireEvent.click(getByText(/voice call/i));
       expect(voiceCallMock).toHaveBeenCalled();
     });
 
@@ -172,8 +173,8 @@ describe(BusinessCard.name, () => {
       const { getByTestId, getByText } = render(
         <BusinessCard {...contact} phone={phone} onVideoCall={videoCallMock} />
       );
-      getByTestId('overflow-menu-toggle').click();
-      getByText(/video call/i).click();
+      fireEvent.click(getByTestId('overflow-menu-toggle'));
+      fireEvent.click(getByText(/video call/i));
       expect(videoCallMock).toHaveBeenCalledTimes(1);
     });
 
@@ -182,8 +183,8 @@ describe(BusinessCard.name, () => {
       const { getByTestId, getByText } = render(
         <BusinessCard {...contact} phone={phone} onSMS={sendSMSMock} />
       );
-      getByTestId('overflow-menu-toggle').click();
-      getByText(/SMS/i).click();
+      fireEvent.click(getByTestId('overflow-menu-toggle'));
+      fireEvent.click(getByText(/SMS/i));
       expect(sendSMSMock).toHaveBeenCalledTimes(1);
     });
 
@@ -192,9 +193,34 @@ describe(BusinessCard.name, () => {
       const { getByTestId, getByText } = render(
         <BusinessCard {...contact} email={email} onEmail={sendEmail} />
       );
-      getByTestId('overflow-menu-toggle').click();
-      getByText(/email/i).click();
+      fireEvent.click(getByTestId('overflow-menu-toggle'));
+      fireEvent.click(getByText(/email/i));
       expect(sendEmail).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('default does not have accessibility violation', async () => {
+      const { container } = render(<BusinessCard {...contact} />);
+      const results = await axe(container.innerHTML);
+      expect(results).toHaveNoViolations();
+    });
+
+    it('does not have accessibility violation with closed contact menu', async () => {
+      const { container } = render(
+        <BusinessCard {...contact} online email={email} phone={phone} />
+      );
+      const results = await axe(container.innerHTML);
+      expect(results).toHaveNoViolations();
+    });
+
+    it('does not have accessibility violation with open contact menu', async () => {
+      const { container, getByTestId } = render(
+        <BusinessCard {...contact} online email={email} phone={phone} />
+      );
+      fireEvent.click(getByTestId('overflow-menu-toggle'));
+      const results = await axe(container.innerHTML);
+      expect(results).toHaveNoViolations();
     });
   });
 });

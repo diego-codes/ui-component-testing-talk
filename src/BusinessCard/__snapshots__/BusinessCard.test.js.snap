@@ -3,7 +3,7 @@
 exports[`BusinessCard Structure - Snapshots renders chat menu options when contact is online 1`] = `
 <div>
   <div
-    class="sc-EHOje gKiHXP"
+    class="sc-EHOje jdCcvM"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -22,10 +22,10 @@ exports[`BusinessCard Structure - Snapshots renders chat menu options when conta
       </div>
     </div>
     <footer
-      class="sc-iwsKbI epMZWM"
+      class="sc-iwsKbI kvdqPK"
     >
       <span
-        class="sc-gZMcBi gNZUQE"
+        class="sc-gZMcBi hQsnUx"
       >
         Online
       </span>
@@ -34,17 +34,17 @@ exports[`BusinessCard Structure - Snapshots renders chat menu options when conta
         data-testid="overflow-menu"
       >
         <button
-          class="sc-bwzfXH sc-htpNat kTndcW"
+          class="sc-bwzfXH sc-htpNat tfKyv"
           data-testid="overflow-menu-toggle"
           open=""
         >
           Contact SpongeBob
         </button>
         <div
-          class="sc-ifAKCX iEfdje"
+          class="sc-ifAKCX gwmupT"
         >
           <button
-            class="sc-bwzfXH sc-bxivhb hUTeng"
+            class="sc-bwzfXH sc-bxivhb cCHJQU"
           >
             Start chat
           </button>
@@ -58,7 +58,7 @@ exports[`BusinessCard Structure - Snapshots renders chat menu options when conta
 exports[`BusinessCard Structure - Snapshots renders contact menu when email is provided 1`] = `
 <div>
   <div
-    class="sc-EHOje gKiHXP"
+    class="sc-EHOje jdCcvM"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -77,7 +77,7 @@ exports[`BusinessCard Structure - Snapshots renders contact menu when email is p
       </div>
     </div>
     <footer
-      class="sc-iwsKbI epMZWM"
+      class="sc-iwsKbI kvdqPK"
     >
       <span
         class="sc-gZMcBi kIVahm"
@@ -89,7 +89,7 @@ exports[`BusinessCard Structure - Snapshots renders contact menu when email is p
         data-testid="overflow-menu"
       >
         <button
-          class="sc-bwzfXH sc-htpNat eAlMUr"
+          class="sc-bwzfXH sc-htpNat gTrUOb"
           data-testid="overflow-menu-toggle"
         >
           Contact SpongeBob
@@ -103,7 +103,7 @@ exports[`BusinessCard Structure - Snapshots renders contact menu when email is p
 exports[`BusinessCard Structure - Snapshots renders contact menu when phone number is provided 1`] = `
 <div>
   <div
-    class="sc-EHOje gKiHXP"
+    class="sc-EHOje jdCcvM"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -122,7 +122,7 @@ exports[`BusinessCard Structure - Snapshots renders contact menu when phone numb
       </div>
     </div>
     <footer
-      class="sc-iwsKbI epMZWM"
+      class="sc-iwsKbI kvdqPK"
     >
       <span
         class="sc-gZMcBi kIVahm"
@@ -134,7 +134,7 @@ exports[`BusinessCard Structure - Snapshots renders contact menu when phone numb
         data-testid="overflow-menu"
       >
         <button
-          class="sc-bwzfXH sc-htpNat eAlMUr"
+          class="sc-bwzfXH sc-htpNat gTrUOb"
           data-testid="overflow-menu-toggle"
         >
           Contact SpongeBob
@@ -148,7 +148,7 @@ exports[`BusinessCard Structure - Snapshots renders contact menu when phone numb
 exports[`BusinessCard Structure - Snapshots renders email menu options when email is provided 1`] = `
 <div>
   <div
-    class="sc-EHOje gKiHXP"
+    class="sc-EHOje jdCcvM"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -167,7 +167,7 @@ exports[`BusinessCard Structure - Snapshots renders email menu options when emai
       </div>
     </div>
     <footer
-      class="sc-iwsKbI epMZWM"
+      class="sc-iwsKbI kvdqPK"
     >
       <span
         class="sc-gZMcBi kIVahm"
@@ -179,17 +179,17 @@ exports[`BusinessCard Structure - Snapshots renders email menu options when emai
         data-testid="overflow-menu"
       >
         <button
-          class="sc-bwzfXH sc-htpNat kTndcW"
+          class="sc-bwzfXH sc-htpNat tfKyv"
           data-testid="overflow-menu-toggle"
           open=""
         >
           Contact SpongeBob
         </button>
         <div
-          class="sc-ifAKCX iEfdje"
+          class="sc-ifAKCX gwmupT"
         >
           <button
-            class="sc-bwzfXH sc-bxivhb hUTeng"
+            class="sc-bwzfXH sc-bxivhb cCHJQU"
           >
             Send email
           </button>
@@ -203,7 +203,7 @@ exports[`BusinessCard Structure - Snapshots renders email menu options when emai
 exports[`BusinessCard Structure - Snapshots renders head shot 1`] = `
 <div>
   <div
-    class="sc-EHOje gKiHXP"
+    class="sc-EHOje jdCcvM"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -226,7 +226,7 @@ exports[`BusinessCard Structure - Snapshots renders head shot 1`] = `
       </div>
     </div>
     <footer
-      class="sc-iwsKbI epMZWM"
+      class="sc-iwsKbI kvdqPK"
     >
       <span
         class="sc-gZMcBi kIVahm"
@@ -241,7 +241,7 @@ exports[`BusinessCard Structure - Snapshots renders head shot 1`] = `
 exports[`BusinessCard Structure - Snapshots renders offline indicator 1`] = `
 <div>
   <div
-    class="sc-EHOje gKiHXP"
+    class="sc-EHOje jdCcvM"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -260,7 +260,7 @@ exports[`BusinessCard Structure - Snapshots renders offline indicator 1`] = `
       </div>
     </div>
     <footer
-      class="sc-iwsKbI epMZWM"
+      class="sc-iwsKbI kvdqPK"
     >
       <span
         class="sc-gZMcBi kIVahm"
@@ -275,7 +275,7 @@ exports[`BusinessCard Structure - Snapshots renders offline indicator 1`] = `
 exports[`BusinessCard Structure - Snapshots renders online indicator and contact menu 1`] = `
 <div>
   <div
-    class="sc-EHOje gKiHXP"
+    class="sc-EHOje jdCcvM"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -294,10 +294,10 @@ exports[`BusinessCard Structure - Snapshots renders online indicator and contact
       </div>
     </div>
     <footer
-      class="sc-iwsKbI epMZWM"
+      class="sc-iwsKbI kvdqPK"
     >
       <span
-        class="sc-gZMcBi gNZUQE"
+        class="sc-gZMcBi hQsnUx"
       >
         Online
       </span>
@@ -306,7 +306,7 @@ exports[`BusinessCard Structure - Snapshots renders online indicator and contact
         data-testid="overflow-menu"
       >
         <button
-          class="sc-bwzfXH sc-htpNat eAlMUr"
+          class="sc-bwzfXH sc-htpNat gTrUOb"
           data-testid="overflow-menu-toggle"
         >
           Contact SpongeBob
@@ -320,7 +320,7 @@ exports[`BusinessCard Structure - Snapshots renders online indicator and contact
 exports[`BusinessCard Structure - Snapshots renders phone number menu options when phone number is provided 1`] = `
 <div>
   <div
-    class="sc-EHOje gKiHXP"
+    class="sc-EHOje jdCcvM"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -339,7 +339,7 @@ exports[`BusinessCard Structure - Snapshots renders phone number menu options wh
       </div>
     </div>
     <footer
-      class="sc-iwsKbI epMZWM"
+      class="sc-iwsKbI kvdqPK"
     >
       <span
         class="sc-gZMcBi kIVahm"
@@ -351,27 +351,27 @@ exports[`BusinessCard Structure - Snapshots renders phone number menu options wh
         data-testid="overflow-menu"
       >
         <button
-          class="sc-bwzfXH sc-htpNat kTndcW"
+          class="sc-bwzfXH sc-htpNat tfKyv"
           data-testid="overflow-menu-toggle"
           open=""
         >
           Contact SpongeBob
         </button>
         <div
-          class="sc-ifAKCX iEfdje"
+          class="sc-ifAKCX gwmupT"
         >
           <button
-            class="sc-bwzfXH sc-bxivhb hUTeng"
+            class="sc-bwzfXH sc-bxivhb cCHJQU"
           >
             Start voice call
           </button>
           <button
-            class="sc-bwzfXH sc-bxivhb hUTeng"
+            class="sc-bwzfXH sc-bxivhb cCHJQU"
           >
             Start video call
           </button>
           <button
-            class="sc-bwzfXH sc-bxivhb hUTeng"
+            class="sc-bwzfXH sc-bxivhb cCHJQU"
           >
             Send SMS
           </button>
