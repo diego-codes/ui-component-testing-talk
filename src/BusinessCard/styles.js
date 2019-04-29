@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { gray, green } from '@carbon/colors';
 
 export const Container = styled.div`
   font-family: 'IBM Plex Sans';
   font-size: 0.875rem;
   line-height: 1.2;
-  background-color: #f3f3f3;
-  color: #252525;
+  background-color: ${gray[10]};
+  color: ${gray[90]};
   max-width: 32em;
 `;
 
@@ -46,10 +47,10 @@ export const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3d3d3d;
+  background-color: ${gray[90]};
   font-size: 0.9em;
   height: 2em;
-  color: #f3f3f3;
+  color: ${gray[10]};
 `;
 
 export const OnlineStatus = styled.span`
@@ -63,7 +64,7 @@ export const OnlineStatus = styled.span`
     height: 0.5em;
     width: 0.5em;
     border-radius: 100%;
-    background-color: ${props => (props.online ? '#56D679' : 'transparent')};
+    background-color: ${props => (props.online ? green[30] : 'transparent')};
     box-shadow: inset 0 0 0 1px ${props => (props.online ? 'transparent' : 'currentColor')};
     margin-right: 0.4em;
   }

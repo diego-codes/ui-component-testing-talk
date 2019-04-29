@@ -222,7 +222,7 @@ Now that we know our component and its variations render correctly. We can test 
 
    ```jsx
    test('removes window resize listener', () => {
-     const removeEventListenerSpy = jest.spy(window, 'removeEventListener')
+     const removeEventListenerSpy = jest.spyOn(window, 'removeEventListener')
      const rearrangeHandler = () => {}
      const wrapper = shallow(<MyComponent onRearrange={rearrangeHandler} />)
      wrapper.unmount()

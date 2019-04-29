@@ -20,6 +20,7 @@ const BusinessCard = ({
   image,
   phone,
   email,
+  onChat,
   onVoiceCall,
   onVideoCall,
   onSMS,
@@ -35,8 +36,9 @@ const BusinessCard = ({
     </ContactInfo>
     <Footer>
       <OnlineStatus online={online}>{online ? 'Online' : 'Offline'}</OnlineStatus>
-      {(phone || email) && (
+      {(online || phone || email) && (
         <OverflowMenu toggleText={`Contact ${firstName}`} flipped>
+          {online && <OverflowMenuItem onClick={onChat}>Start chat</OverflowMenuItem>}
           {phone && (
             <Fragment>
               <OverflowMenuItem onClick={onVoiceCall}>Start voice call</OverflowMenuItem>
@@ -60,6 +62,7 @@ BusinessCard.propTypes = {
   image: PropTypes.string,
   phone: PropTypes.string,
   email: PropTypes.string,
+  onChat: PropTypes.func,
   onVoiceCall: PropTypes.func,
   onVideoCall: PropTypes.func,
   onSMS: PropTypes.func,
@@ -71,6 +74,7 @@ BusinessCard.defaultProps = {
   image: undefined,
   phone: undefined,
   email: undefined,
+  onChat: () => {},
   onVoiceCall: () => {},
   onVideoCall: () => {},
   onSMS: () => {},

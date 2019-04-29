@@ -11,6 +11,7 @@
     "storybook": "start-storybook"
   },
   "dependencies": {
+    "@carbon/colors": "^10.1.1",
     "@storybook/react": "^5.0.10",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -19,6 +20,8 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^5.0.11",
+    "@storybook/addon-actions": "^5.0.11",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",

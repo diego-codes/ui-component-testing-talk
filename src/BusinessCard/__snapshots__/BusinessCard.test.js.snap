@@ -1,5 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`BusinessCard Structure - Snapshots renders chat menu options when contact is online 1`] = `
+<div>
+  <div
+    class="sc-EHOje gKiHXP"
+  >
+    <div
+      class="sc-bZQynM hzprsO"
+    >
+      <div>
+        <h1
+          class="sc-htoDjs iZtlym"
+        >
+          SpongeBob SquarePants
+        </h1>
+        <h2
+          class="sc-dnqmqq kGYEvA"
+        >
+          Fry cook — Krusty Krab
+        </h2>
+      </div>
+    </div>
+    <footer
+      class="sc-iwsKbI epMZWM"
+    >
+      <span
+        class="sc-gZMcBi gNZUQE"
+      >
+        Online
+      </span>
+      <div
+        class="sc-bdVaJa huqire"
+        data-testid="overflow-menu"
+      >
+        <button
+          class="sc-bwzfXH sc-htpNat kTndcW"
+          data-testid="overflow-menu-toggle"
+          open=""
+        >
+          Contact SpongeBob
+        </button>
+        <div
+          class="sc-ifAKCX iEfdje"
+        >
+          <button
+            class="sc-bwzfXH sc-bxivhb hUTeng"
+          >
+            Start chat
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+`;
+
 exports[`BusinessCard Structure - Snapshots renders contact menu when email is provided 1`] = `
 <div>
   <div
@@ -217,7 +272,7 @@ exports[`BusinessCard Structure - Snapshots renders offline indicator 1`] = `
 </div>
 `;
 
-exports[`BusinessCard Structure - Snapshots renders online indicator 1`] = `
+exports[`BusinessCard Structure - Snapshots renders online indicator and contact menu 1`] = `
 <div>
   <div
     class="sc-EHOje gKiHXP"
@@ -246,6 +301,17 @@ exports[`BusinessCard Structure - Snapshots renders online indicator 1`] = `
       >
         Online
       </span>
+      <div
+        class="sc-bdVaJa huqire"
+        data-testid="overflow-menu"
+      >
+        <button
+          class="sc-bwzfXH sc-htpNat eAlMUr"
+          data-testid="overflow-menu-toggle"
+        >
+          Contact SpongeBob
+        </button>
+      </div>
     </footer>
   </div>
 </div>
