@@ -1,0 +1,317 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BusinessCard Structure - Snapshots renders contact menu when email is provided 1`] = `
+<div>
+  <div
+    class="sc-EHOje gKiHXP"
+  >
+    <div
+      class="sc-bZQynM hzprsO"
+    >
+      <div>
+        <h1
+          class="sc-htoDjs iZtlym"
+        >
+          SpongeBob SquarePants
+        </h1>
+        <h2
+          class="sc-dnqmqq kGYEvA"
+        >
+          Fry cook — Krusty Krab
+        </h2>
+      </div>
+    </div>
+    <footer
+      class="sc-iwsKbI epMZWM"
+    >
+      <span
+        class="sc-gZMcBi kIVahm"
+      >
+        Offline
+      </span>
+      <div
+        class="sc-bdVaJa huqire"
+        data-testid="overflow-menu"
+      >
+        <button
+          class="sc-bwzfXH sc-htpNat eAlMUr"
+          data-testid="overflow-menu-toggle"
+        >
+          Contact SpongeBob
+        </button>
+      </div>
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`BusinessCard Structure - Snapshots renders contact menu when phone number is provided 1`] = `
+<div>
+  <div
+    class="sc-EHOje gKiHXP"
+  >
+    <div
+      class="sc-bZQynM hzprsO"
+    >
+      <div>
+        <h1
+          class="sc-htoDjs iZtlym"
+        >
+          SpongeBob SquarePants
+        </h1>
+        <h2
+          class="sc-dnqmqq kGYEvA"
+        >
+          Fry cook — Krusty Krab
+        </h2>
+      </div>
+    </div>
+    <footer
+      class="sc-iwsKbI epMZWM"
+    >
+      <span
+        class="sc-gZMcBi kIVahm"
+      >
+        Offline
+      </span>
+      <div
+        class="sc-bdVaJa huqire"
+        data-testid="overflow-menu"
+      >
+        <button
+          class="sc-bwzfXH sc-htpNat eAlMUr"
+          data-testid="overflow-menu-toggle"
+        >
+          Contact SpongeBob
+        </button>
+      </div>
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`BusinessCard Structure - Snapshots renders email menu options when email is provided 1`] = `
+<div>
+  <div
+    class="sc-EHOje gKiHXP"
+  >
+    <div
+      class="sc-bZQynM hzprsO"
+    >
+      <div>
+        <h1
+          class="sc-htoDjs iZtlym"
+        >
+          SpongeBob SquarePants
+        </h1>
+        <h2
+          class="sc-dnqmqq kGYEvA"
+        >
+          Fry cook — Krusty Krab
+        </h2>
+      </div>
+    </div>
+    <footer
+      class="sc-iwsKbI epMZWM"
+    >
+      <span
+        class="sc-gZMcBi kIVahm"
+      >
+        Offline
+      </span>
+      <div
+        class="sc-bdVaJa huqire"
+        data-testid="overflow-menu"
+      >
+        <button
+          class="sc-bwzfXH sc-htpNat kTndcW"
+          data-testid="overflow-menu-toggle"
+          open=""
+        >
+          Contact SpongeBob
+        </button>
+        <div
+          class="sc-ifAKCX iEfdje"
+        >
+          <button
+            class="sc-bwzfXH sc-bxivhb hUTeng"
+          >
+            Send email
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`BusinessCard Structure - Snapshots renders head shot 1`] = `
+<div>
+  <div
+    class="sc-EHOje gKiHXP"
+  >
+    <div
+      class="sc-bZQynM hzprsO"
+    >
+      <div
+        class="sc-gzVnrw cSZKiZ"
+        data-testid="business-card-image"
+      />
+      <div>
+        <h1
+          class="sc-htoDjs iZtlym"
+        >
+          SpongeBob SquarePants
+        </h1>
+        <h2
+          class="sc-dnqmqq kGYEvA"
+        >
+          Fry cook — Krusty Krab
+        </h2>
+      </div>
+    </div>
+    <footer
+      class="sc-iwsKbI epMZWM"
+    >
+      <span
+        class="sc-gZMcBi kIVahm"
+      >
+        Offline
+      </span>
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`BusinessCard Structure - Snapshots renders offline indicator 1`] = `
+<div>
+  <div
+    class="sc-EHOje gKiHXP"
+  >
+    <div
+      class="sc-bZQynM hzprsO"
+    >
+      <div>
+        <h1
+          class="sc-htoDjs iZtlym"
+        >
+          SpongeBob SquarePants
+        </h1>
+        <h2
+          class="sc-dnqmqq kGYEvA"
+        >
+          Fry cook — Krusty Krab
+        </h2>
+      </div>
+    </div>
+    <footer
+      class="sc-iwsKbI epMZWM"
+    >
+      <span
+        class="sc-gZMcBi kIVahm"
+      >
+        Offline
+      </span>
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`BusinessCard Structure - Snapshots renders online indicator 1`] = `
+<div>
+  <div
+    class="sc-EHOje gKiHXP"
+  >
+    <div
+      class="sc-bZQynM hzprsO"
+    >
+      <div>
+        <h1
+          class="sc-htoDjs iZtlym"
+        >
+          SpongeBob SquarePants
+        </h1>
+        <h2
+          class="sc-dnqmqq kGYEvA"
+        >
+          Fry cook — Krusty Krab
+        </h2>
+      </div>
+    </div>
+    <footer
+      class="sc-iwsKbI epMZWM"
+    >
+      <span
+        class="sc-gZMcBi gNZUQE"
+      >
+        Online
+      </span>
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`BusinessCard Structure - Snapshots renders phone number menu options when phone number is provided 1`] = `
+<div>
+  <div
+    class="sc-EHOje gKiHXP"
+  >
+    <div
+      class="sc-bZQynM hzprsO"
+    >
+      <div>
+        <h1
+          class="sc-htoDjs iZtlym"
+        >
+          SpongeBob SquarePants
+        </h1>
+        <h2
+          class="sc-dnqmqq kGYEvA"
+        >
+          Fry cook — Krusty Krab
+        </h2>
+      </div>
+    </div>
+    <footer
+      class="sc-iwsKbI epMZWM"
+    >
+      <span
+        class="sc-gZMcBi kIVahm"
+      >
+        Offline
+      </span>
+      <div
+        class="sc-bdVaJa huqire"
+        data-testid="overflow-menu"
+      >
+        <button
+          class="sc-bwzfXH sc-htpNat kTndcW"
+          data-testid="overflow-menu-toggle"
+          open=""
+        >
+          Contact SpongeBob
+        </button>
+        <div
+          class="sc-ifAKCX iEfdje"
+        >
+          <button
+            class="sc-bwzfXH sc-bxivhb hUTeng"
+          >
+            Start voice call
+          </button>
+          <button
+            class="sc-bwzfXH sc-bxivhb hUTeng"
+          >
+            Start video call
+          </button>
+          <button
+            class="sc-bwzfXH sc-bxivhb hUTeng"
+          >
+            Send SMS
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+`;

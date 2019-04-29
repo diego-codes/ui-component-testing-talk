@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/reveal.css">
+
+
+  <!-- Talk-specific styles -->
+  <link rel="stylesheet" href="css/talk.css">
+  <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+
+  <!-- Custom theme -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans:400,600">
+  <link rel="stylesheet" href="css/theme.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Reinforcing<br />your blocks</h1>
+        <p>A practical guide to UI component testing</p>
+      </section>
+
+      <!-- Introduction -->
+      <section>
+        <section>
+          <div data-markdown>
+            # Introduction
+          </div>
+          <aside class="notes" data-markdown>
+            - FED in IBM Security design team
+            - Working on my masters in Software Engineering
+            - Currently taking a course on software testing and quality assurance
+          </aside>
+        </section>
+
+        <section>
+          <div data-markdown>
+            > It's too hard. We'll just add tests when we have more time. 😬👍🏽
+          </div>
+          <div class="fragment fade-up" data-markdown>
+            ## ...🤨 oh really?
+          </div>
+          <aside class="notes" data-markdown>
+            - Testing is important, but put it off to a later time
+            - Best time to start is now
+          </aside>
+        </section>
+
+        <section>
+          <div data-markdown>
+            # It's time to get down to business
+          </div>
+          <aside class="notes" data-markdown>
+            - Want to test, need to learn how
+            - Watched tutorials, but they're too simplistic
+            - Hard to translate to UI development
+            - Lucky to have worked with incredible developers in IBM
+            - I've had time to explore this topic
+            - Have few tricks and guidelines for UI component testing to share
+          </aside>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <div data-markdown>
+            # What is UI component testing?
+          </div>
+          <aside class="notes" data-markdown>
+            - Industry standard to break user interfaces down into smaller and reusable components
+            - Think of Javascript UI components as a function or API that takes some inputs and outputs fully
+            structured, styled, interactive UI
+            - Test allows us to write use cases where we know what the output should be and compare it with Make sure
+            that this output is both correct and predictable
+          </aside>
+        </section>
+
+        <section>
+          <h2>Components are functions</h2>
+          <figure class="layout--columns">
+            <div class="layout--columns__item layout--center-content">
+              <div class="layout--center-content__group">
+                <img src="img/intro-test-button-code.png" />
+              </div>
+            </div>
+            <div class="layout--columns__item layout--center-content">
+              <div class="layout--center-content__group">
+                <button tabindex="-1" class="bx--btn bx--btn--sm bx--btn--danger" type="button"
+                  style="transform: scale(2)">Delete record</button>
+              </div>
+            </div>
+          </figure>
+          <aside class="notes" data-markdown>
+            - Test allows us to write use cases where we know what the output should be and compare it with
+            - Make sure that this output is both correct and predictable
+          </aside>
+        </section>
+
+        <section>
+          <div data-markdown>
+          ### What is a test? 
+            ![test vis](img/intro-test-breakdown.png)
+          </div>
+          <aside class="notes" data-markdown>
+            - Test allows us to write use cases where we know what the output should be and compare it with
+            - Make sure that this output is both correct and predictable
+          </aside>
+        </section>
+
+        <section>
+          <div class="talk--blocks">
+            <figure class="talk--blocks__item">
+              Code quality
+            </figure>
+            <figure class="talk--blocks__item">
+              Structure (HTML)
+            </figure>
+            <figure class="talk--blocks__item">
+              Visual (CSS)
+            </figure>
+            <figure class="talk--blocks__item">
+              Behavior (JS)
+            </figure>
+            <figure class="talk--blocks__item">
+              Accessibility
+            </figure>
+            <figure class="talk--blocks__item">
+              Performance
+            </figure>
+          </div>
+          <div class="fragment fade-in" data-markdown>
+            > What can I possibly do to break this component?
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <div>
+           <h1>Why should I test my UI components?</h1>
+           <ul>
+             <li class="fragment">Makes you a better programmer</li>
+             <li class="fragment">Find bugs sooner and fix them faster</li>
+             <li class="fragment">Creating good software is our duty and craft</li>
+           </ul>
+          </div>
+          <aside class="notes">
+            - All can be tested manually, but why would you?
+            - We like automating things
+          </aside>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <div data-markdown>
+            # Okay, so how do I test my UI components?
+          </div>
+
+          <aside class="notes">
+            - I've convinced you that testing is good and important
+          </aside>
+        </section>
+
+        section>div[data-markdown]+aside.notes
+
+        <section>
+          <div>
+            <h2>Code quality</h2>
+            <ul>
+              <li class="fragment">Document all of your component props</li>
+              <li class="fragment">Use a linter to enforce this and more
+                <img class="fragment" src="img/eslint-props-error.gif" />
+              </li>
+            </ul>
+          </div>
+          <aside class="notes">
+            - This isn't writing unit tests like you would have imagined
+            - React and Vue props declarations
+            - Angular has Typescript
+            - Eslint will help enforce coding standards
+            - Incorporates with code editors
+          </aside>
+        </section>
+        
+        <section>
+          <div data-markdown>
+            ## Structural tests (HTML)
+            ### Does it render?
+            
+          </div>
+          <aside class="notes"></aside>
+        </section>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true }
+      ]
+    });
+  </script>
+</body>
+
+</html>

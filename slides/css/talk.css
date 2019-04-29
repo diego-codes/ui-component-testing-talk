@@ -1,0 +1,41 @@
+
+.talk--blocks {
+  display: flex;
+  padding-bottom: var(--block-margin);
+}
+
+.talk--blocks__item {
+  display: flex;
+  background-color: var(--accent-color);
+  color: var(--accent-color-reverse);
+  margin: 0.1em;
+  padding: 0.4em;
+  font-size: 0.8em;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout--columns {
+  display: flex;
+  justify-content: stretch;
+}
+
+.layout--columns__item {
+  flex: 1 1 100%;
+  margin-right: 0.2em;
+}
+
+.layout--center-content {
+  display: flex;
+  align-items: center;
+}
+
+.layout--center-content__group {
+  width: 100%;
+}
+
+
+/* JSX fix */
+.jsx .hljs-name {
+  text-transform: capitalize;
+}

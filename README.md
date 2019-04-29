@@ -28,7 +28,7 @@ Luckily, I've worked with some incredible developers in IBM and have had time to
 
 _SHOW TESTING PYRAMID and explain we're only going to focus on unit tests_
 
-The industry standard way of building user interfaces for complex applications like ones we build here at IBM is to break down our UIs into small and reusable components. UI components in most cases (like in React) can be seen as a function or process that results in structured HTML with styles and interactions ready to be used. Our job is to make sure that this output is both correct, repeatable, and predictable. There are different aspects of our components that we need to concern ourselves with:
+The industry standard way of building user interfaces for complex applications like ones we build here at IBM is to break down our UIs into small and reusable components. Javascript UI components in most cases (like React) can be seen as a function or API that takes some inputs and results in structured HTML with styles and behaviors ready to be used. Our job is to make sure that this output is both correct, repeatable, and predictable. There are different aspects of our components that we need to concern ourselves with:
 
 **Code quality:** Are there bugs in the code that will prevent from the component from outputting anything at all (Does it render)? 
 
@@ -54,7 +54,7 @@ All of the things characteristics of UI components I mentioned before can all be
 
 But why would you would you want to spend the time automating tests?
 
-- Well, first it will  make you a better programmer. With the idea that unit tests are very small in scope and are intended to test a single component, we're forced to make our code easy to test by focusing on modularity and not relying on side effects for things to work.
+- Well, first it will  make you a better programmer. With the idea that unit tests are very small in scope and are intended to test a single component, we're forced to make our code easy to test by focusing on modularity and not relying on side effects for things to work
 - You'll be able find bugs much sooner. This important because the cost of finding bugs in later stages of a project can be exponentially more costly. Also none of us want a user to find a critical, yet preventable bug before we do 🙀. You can share this idea with your execs if you're struggling to get buy-in for why it's worth your time and the business' money to automate tests.
 - Lastly because our craft and we're paid to build good and solid software so it is our responsibility to make sure our code works well under any circumstance and that's what automated testing can help us with.  
 

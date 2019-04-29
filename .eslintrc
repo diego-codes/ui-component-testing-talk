@@ -1,0 +1,67 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "plugin:security/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "plugins": [
+    "import",
+    "react",
+    "prettier",
+    "security"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-use-before-define": 0,
+    "valid-jsdoc": 2,
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/jsx-uses-react": 1,
+    "react/jsx-no-undef": 2,
+    "react/jsx-wrap-multilines": 2,
+    "react/no-string-refs": 0,
+    "react/require-default-props": 1,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "import/no-webpack-loader-syntax": 0,
+    "security/detect-object-injection": 0,
+    "jsx-a11y/label-has-for": [
+      1,
+      {
+        "required": {
+          "some": [
+            "nesting",
+            "id"
+          ]
+        }
+      }
+    ],
+    "no-nested-ternary": 0
+  }
+}
