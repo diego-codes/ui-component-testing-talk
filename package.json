@@ -1,5 +1,5 @@
 {
-  "name": "talk-template",
+  "name": "practical-guide-to-ui-component-testing",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,11 +8,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook -p 9000",
+    "slides": "live-server slides"
   },
   "dependencies": {
     "@carbon/colors": "^10.1.1",
     "@storybook/react": "^5.0.10",
+    "live-server": "^1.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

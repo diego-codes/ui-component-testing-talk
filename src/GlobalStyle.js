@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'IBM Plex Sans', Helvertica, Arial, sans-serif;
     font-size: ${baseFontSize / 16}em;
+    line-height: 1.2;
   }
 `;
 

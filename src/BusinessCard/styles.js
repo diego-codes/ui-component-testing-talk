@@ -2,9 +2,6 @@ import styled from 'styled-components';
 import { gray, green } from '@carbon/colors';
 
 export const Container = styled.div`
-  font-family: 'IBM Plex Sans';
-  font-size: 0.875rem;
-  line-height: 1.2;
   background-color: ${gray[10]};
   color: ${gray[90]};
   max-width: 32em;
