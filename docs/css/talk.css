@@ -1,0 +1,24 @@
+.layout--columns {
+  display: flex;
+  justify-content: stretch;
+}
+
+.layout--columns__item {
+  flex: 1 1 100%;
+  margin-right: 0.2em;
+}
+
+.layout--center-content {
+  display: flex;
+  align-items: center;
+}
+
+.layout--center-content__group {
+  width: 100%;
+}
+
+
+/* JSX fix */
+.jsx .hljs-name {
+  text-transform: capitalize;
+}

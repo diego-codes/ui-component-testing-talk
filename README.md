@@ -1,5 +1,9 @@
 # Reinforcing your blocks: A practical guide to UI component testing
 
+<div align="center">
+  [**Slides**](https://diego-codes.github.io/ui-component-testing-talk/) | [**Storybook**](https://diego-codes.github.io/ui-component-testing-talk/storybook/)
+</div>
+
 ## Outline
 
 - [Introduction](#introduction)

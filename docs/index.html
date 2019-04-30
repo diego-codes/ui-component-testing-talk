@@ -1,0 +1,498 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Reinforcing your blocks</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/reveal.css">
+
+
+  <!-- Talk-specific styles -->
+  <link rel="stylesheet" href="css/talk.css">
+
+  <!-- Custom theme -->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,600" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <block class="slides">
+      <section>
+        <h1 style="display: flex; align-items: center">
+          <img src="img/diegohernandez.jpg" style="max-width: 20%; border-radius: 100%; margin-right: 0.5em" />
+          Hello there!
+        </h1>
+        <aside class="notes" data-markdown>
+          - FED in IBM Security design team
+        </aside>
+      </section>
+
+      <section>
+        <h1>Reinforcing<br />your blocks</h1>
+        <p>A practical guide to UI component testing</p>
+        <aside class="notes" data-markdown>
+          - Testing strategy in our team
+          - Personal experience with testing
+          - Tips for testing UI components
+        </aside>
+      </section>
+
+      <section>
+        <h2>
+         📝 Overview
+        </h2>
+        <ul>
+          <li>Why testing is useful</li>
+          <li>The component</li>
+          <li>Testing demos</li>
+        </ul>
+      </section>
+
+      <section>
+        <section>
+          <h1>
+            🧪 What is testing and why is it useful
+          </h1>
+        </section>
+
+        <section>
+          <h3>UI component architecture</h3>
+          <img src="img/components-in-page.gif" />
+          <aside class="notes" data-markdown>
+            - Industry standard to break user interfaces down into smaller and reusable components
+          </aside>
+        </section>
+
+        <section>
+          <h3>UI component are functions</h3>
+          <div class="layout--columns">
+            <div class="layout--columns__item">
+                <p>Component usage</p>
+                <img src="img/component-usage-code.png" />
+            </div>
+            <div class="layout--columns__item">
+                <p>Component output</p>
+                <img src="img/component-render-ui.png" />
+            </div>
+          </div>
+          <aside class="notes" data-markdown>
+            - Think of Javascript UI components as a function or API that takes some inputs and outputs fully
+            structured, styled, interactive UI
+          </aside>
+        </section>
+        <section>
+          <h2>Ensure output is of component correct</h2>
+          <blockquote class="fragment">
+            What can I possibly do to break this component?
+          </blockquote>
+          <aside class="notes" data-markdown>
+            - Testing is the practice of systematically or adhoc checking outputs agains expectations
+            - Tests help find bugs and fix bugs sooner
+            - Makes your code more reliable and higher quality
+            - Automating tests saves time
+              - Check hundreds or thousands of tests in seconds
+          </aside>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>The Business Card component</h2>
+          <div class="layout--columns">
+            <div class="layout--columns__item">
+                <p>Default variation</p>
+                <img src="img/component-basic.png" />
+            </div>
+            <div class="layout--columns__item">
+                <p>Fully-featured variation</p>
+                <img src="img/component-full.png" />
+            </div>
+          </div>
+          <aside class="notes" data-markdown>
+            - Component props
+            - Component interactions
+            - Component actions
+          </aside>
+        </section>
+        <section>
+          <h2>UI testing pillars</h2>
+          <ul>
+            <li class="fragment">Manual visual tests (CSS)</li>
+            <li class="fragment">Structure tests (HTML)</li>
+            <li class="fragment">Interaction tests (Javascript)</li>
+            <li class="fragment">Accessibility</li>
+          </ul>
+          <aside class="notes" data-markdown>
+            - Not just one type of test for UI
+            - UI has many different aspects that can and should be tested
+          </aside>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>Manual visual tests (CSS)</h2>
+          <p>Introducing <code>storybook</code></p>
+          <aside class="notes" data-markdown>
+            - Variations
+            - Knobs
+            - Works with all major frameworks React, Vue, Angular
+          </aside>
+        </section>
+
+        <section>
+          <h2>Adding a story</h2>
+          <div class="layout--columns">
+            <div class="layout--columns__item">
+              <code>BusinessCard.stories.js</code>
+              <img src="img/test-visual-storybook-code.png" />
+            </div>
+            <div class="layout--columns__item">
+                Output
+                <img src="img/test-visual-storybook-render.png" />
+            </div>
+          </div>
+          <aside class="notes" data-markdown>
+            - Create a set of stories
+            - Add a story one by one with label
+            - Knobs usage
+          </aside>
+        </section>
+
+        <section>
+          <h2>Why not automated testing?</h2>
+          <div class="fragment">
+            <p>Visual regression tests are challenging and fragile</p>
+            <img src="img/test-visual-regression-1.png" />
+            <img src="img/test-visual-regression-2.png" />
+          </div>
+          <aside class="notes" data-markdown>
+            - Challenging to set up
+            - False positives
+            - Example anti-alisaing
+            - Differences not perceivable by humans
+            - Not worth it for us to add
+          </aside>
+        </section>
+
+        <section>
+          <h2>Key points of visual tests</h2>
+          <ul>
+            <li class="fragment">Use Storybook on your project</li>
+            <li class="fragment">Create stories for as many variations as makes sense</li>
+            <li class="fragment">Learn more about visual regression testing</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>Structure tests (HTML)</h2>
+        </section>
+
+        <section>
+          <h2>Introducing <code>jest</code></h2>
+          <div class="layout--columns">
+            <div class="layout--columns__item">
+              <code>demo.test.js</code>
+              <img src="img/jest-intro-code.png" />
+            </div>
+            <div class="layout--columns__item">
+              <code>npm run test demo.test.js</code>
+              <video src="img/jest-intro-output.mp4" autoplay loop controls style="margin: var(--block-margin) 0"></video>
+            </div>
+          </div>
+          <aside class="notes" data-markdown>
+            - Jest provides `describe`, `it`, and `expect`
+            - `describe` groups tests into a test suite
+            - `it` an individual test
+            - `expect` the assertion (aka the checker or comparison)
+              - One per test
+              - Predictable
+          </aside>
+        </section>
+
+        <section>
+          <h2>Render test</h2>
+          <img src="img/test-structure-render.png" />
+          <aside class="notes" data-markdown>
+            - Checks that a component can be rendered
+            - `render` comes from React testing library
+              - returns object that we're going to use in advanced tests
+          </aside>
+        </section>
+
+        <section>
+          <h2>Basic structure test</h2>
+          <div class="layout--columns">
+            <div class="layout--columns__item">
+              <code>BusinessCard.test.js</code>
+              <img src="img/test-structure-basic.png" />
+            </div>
+            <div class="layout--columns__item">
+              What is tested
+              <img src="img/test-structure-basic-ui.png" />
+            </div>
+          </div>
+          <aside class="notes" data-markdown>
+            - Checks an aspect of component content
+            - Expect extension comes from `jest-dom`
+          </aside>
+        </section>
+
+        <section>
+          <h2>Conditional structure tests</h2>
+          <div class="layout--columns">
+            <div class="layout--columns__item">
+              <code>BusinessCard.test.js</code>
+              <img src="img/test-structure-conditional-render.png" />
+            </div>
+            <div class="layout--columns__item">
+              What is tested
+              <img src="img/test-structure-conditional-render-ui-1.png" />
+              <img src="img/test-structure-conditional-render-ui-2.png" />
+            </div>
+          </div>
+          <aside class="notes" data-markdown>
+            - Checks differences in output HTML based on prop changes
+            - RTL query functions
+          </aside>
+        </section>
+
+        <section>
+          <h2>Conditional content tests</h2>
+          <div class="layout--columns">
+            <div class="layout--columns__item">
+              <code>BusinessCard.test.js</code>
+              <small>Using <code>data-testid</code> attribute</small>
+              <img src="img/test-structure-conditional-content.png" />
+            </div>
+            <div class="layout--columns__item">
+              What is tested
+              <img src="img/test-structure-conditional-content-ui-1.png" />
+              <img src="img/test-structure-conditional-content-ui-2.png" />
+            </div>
+          </div>
+          <aside class="notes" data-markdown>
+            - Checks differences in output HTML text based on prop changes
+            - Introduce testid
+          </aside>
+        </section>
+
+        <section>
+          <h2>Snapshot tests</h2>
+          <code>BusinessCard.test.js</code>
+          <img src="img/test-structure-snapshots.png" />
+          <aside class="notes" data-markdown>
+            - Notice that test amount can get out hand
+            - Too many things to test for
+            - Snapshots saves the rendered html first time
+            - Compares later test to saved snapshot
+          </aside>
+        </section>
+        <section>
+          <h2>Generated snapshot</h2>
+          <pre><code>
+  exports[`BusinessCard Structure - Snapshots renders default structure 1`] = `
+  <div>
+    <div
+      class="sc-EHOje jdCcvM"
+    >
+      <div
+        class="sc-bZQynM hzprsO"
+      >
+        <div>
+          <h1
+            class="sc-htoDjs iZtlym"
+          >
+            Squidward Tentacles
+          </h1>
+          <h2
+            class="sc-dnqmqq kGYEvA"
+          >
+            Cashier/Clarinet master — Krusty Krab
+          </h2>
+        </div>
+      </div>
+      <footer
+        class="sc-iwsKbI kvdqPK"
+      >
+        <span
+          class="sc-gZMcBi kIVahm"
+          data-testid="business-card-online-indicator"
+        >
+          Offline
+        </span>
+      </footer>
+    </div>
+  </div>
+  `;
+          </code></pre>
+          <aside class="notes" data-markdown>
+            - Snapshot file is also added to version control
+            - Any deviation will cause test to fail
+            - Update snapshot when change is intended
+            - Use with caution 
+              - Small code changes can create large snapshot diffs
+              - Snapshots are very easy to update
+              - Small variations hard to discover
+          </aside>
+        </section>
+
+        <section>
+          <h2>Snapshot test failure</h2>
+          <video src="img/test-structure-snapshots-failure.mp4" autoplay controls loop style="max-width: 75%"></video>
+          <aside class="notes" data-markdown>
+            - Notice granularity
+            - Press `u` to update
+          </aside>
+        </section>
+
+        <section>
+          <h2>Key points of structure tests</h2>
+          <ul>
+            <li class="fragment">Look for variations based on props to test</li>
+            <li class="fragment">Use snapshots, with caution</li>
+            <li class="fragment">Always review snapshot changes</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>Interaction tests (Javascript)</h2>
+        </section>
+        <section>
+          <h2>Storybook actions addon</h2>
+          <img src="img/test-interaction-storybook-actions.png" />
+          <aside class="notes" data-markdown>
+            - Get notified when prop function has been called
+            - Manual but useful tests
+            - STORYBOOK
+          </aside>
+        </section>
+
+        <section>
+          <h2>Simulating user behavior</h2>
+          <p>With <code>fireEvent</code> from React Testing Library</p>
+          <img src="img/test-interaction-event-simulation.png" >
+          <aside class="notes" data-markdown>
+            - Any user heavior can be simulated with `fireEvent` from RTL
+            - Snapshot helps with assert that menu opened and expected options are in there
+            - STORYBOOK
+          </aside>
+        </section>
+
+        <section>
+          <h2>Testing callback props</h2>
+          <p>With <code>jest.fn()</code> mocks</p>
+          <img src="img/test-interaction-mock.png" >
+          <aside class="notes" data-markdown>
+            - Mocks are functions that track everything: calls, parameters
+            - Called mocks because you can mock returns
+            - Good for testing function prop calls
+            - STORYBOOK
+          </aside>
+        </section>
+
+        <section>
+          <h2>Key points of interaction tests</h2>
+          <ul>
+            <li class="fragment">Look for all event listeners and test their behavior</li>
+            <li class="fragment">Learn more about Jest mocks and spies</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>Accessibility</h2>
+          <p class="fragment">Only <a
+              href="https://accessibility.blog.gov.uk/2017/02/24/what-we-found-when-we-tested-tools-on-the-worlds-least-accessible-webpage/"
+              target="_blank">
+              ~30% of accessibility defects</a> are discovered through automated testing tools</p>
+          <aside class="notes" data-markdown>
+            - Auto testing sets good baseline
+            - Manual and user testing is still very important
+          </aside>
+        </section>
+
+        <section>
+          <h2>Automatic semantic tests</h2>
+          <p>Using <code>jest-axe</code></p>
+          <img src="img/test-a11y-axe.png" alt="accessbility structural test">
+          <aside class="notes" data-markdown>
+            - Expect extension from `jest-axe`
+            - Checks HTML structure for semantic issues
+            - Checks aria roles
+          </aside>
+        </section>
+
+        <section>
+          <h2>Automatic-ish visual tests</h2>
+          <p>Using <code>@storybook/addons-a11y</code></p>
+          <aside class="notes" data-markdown>
+            - Runs on whatever is rendered
+            - Shows all tests ran
+            - Demo color change
+            - Color blindness filters (data viz)
+          </aside>
+        </section>
+
+        <section>
+          <h2>Key points of accessbility tests</h2>
+          <ul>
+            <li class="fragment">Adding accessibility tests is not as difficult</li>
+            <li class="fragment">Variety of testing tools can make accessbility tests more complete</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Conclusion</h1>
+          <ul>
+            <li class="fragment">Testing your code will help you find and fix bugs sooner</li>
+            <li class="fragment">UI tests can be broken down to: structure, visual, interaction, and accessbility tests</li>
+            <li class="fragment">Use snapshots with responsibility</li>
+          </ul>
+        </section>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true }
+      ]
+    });
+  </script>
+</body>
+
+</html>
