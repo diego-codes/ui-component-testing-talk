@@ -1,18 +1,14 @@
 
 .talk--blocks {
-  display: flex;
   padding-bottom: var(--block-margin);
 }
 
 .talk--blocks__item {
-  display: flex;
   background-color: var(--accent-color);
   color: var(--accent-color-reverse);
   margin: 0.1em;
   padding: 0.4em;
   font-size: 0.8em;
-  justify-content: center;
-  align-items: center;
 }
 
 .layout--columns {

@@ -1,5 +1,11 @@
 import React from 'react';
-import { render, queryByTestId, queryAllByText, fireEvent } from 'react-testing-library';
+import {
+  render,
+  queryByText,
+  queryByTestId,
+  queryAllByText,
+  fireEvent,
+} from 'react-testing-library';
 import { axe } from 'jest-axe';
 import BusinessCard from '.';
 
@@ -45,21 +51,26 @@ describe(BusinessCard.name, () => {
       expect(headShot).toBeNull();
     });
 
-    it('does not contain contact menu when contact info is not provided', () => {
+    it('does not contain contact menu by default', () => {
       const { container } = render(<BusinessCard {...contact} />);
-      const menuButton = queryByTestId(container, 'overflow-menu');
+      const menuButton = queryByText(container, `Contact ${contact.firstName}`);
       expect(menuButton).toBeNull();
     });
 
-    it('shows that contact is online', () => {
-      const { container } = render(<BusinessCard {...contact} online />);
-      expect(container).toHaveTextContent(/online/i);
+    it('contains contact menu when contact is online', () => {
+      const { getByText } = render(<BusinessCard {...contact} online />);
+      const menuButton = getByText(`Contact ${contact.firstName}`);
+      expect(menuButton).not.toBeNull();
     });
 
-    it('contains contact menu when contact is online', () => {
+    it('shows that contact is offline by default', () => {
+      const { getByTestId } = render(<BusinessCard {...contact} />);
+      expect(getByTestId('business-card-online-indicator')).toHaveTextContent(/offline/i);
+    });
+
+    it('shows that contact is online', () => {
       const { getByTestId } = render(<BusinessCard {...contact} online />);
-      const menuButton = getByTestId('overflow-menu');
-      expect(menuButton).not.toBeNull();
+      expect(getByTestId('business-card-online-indicator')).toHaveTextContent(/online/i);
     });
 
     it('contains contact menu when phone number is provided', () => {
@@ -103,13 +114,13 @@ describe(BusinessCard.name, () => {
   });
 
   describe('Structure - Snapshots', () => {
-    it('renders head shot', () => {
-      const { container } = render(<BusinessCard {...contact} image={image} />);
+    it('renders default structure', () => {
+      const { container } = render(<BusinessCard {...contact} />);
       expect(container).toMatchSnapshot();
     });
 
-    it('renders offline indicator', () => {
-      const { container } = render(<BusinessCard {...contact} />);
+    it('renders head shot', () => {
+      const { container } = render(<BusinessCard {...contact} image={image} />);
       expect(container).toMatchSnapshot();
     });
 

@@ -22,10 +22,11 @@ exports[`BusinessCard Structure - Snapshots renders chat menu options when conta
       </div>
     </div>
     <footer
-      class="sc-iwsKbI kvdqPK"
+      class="sc-iwsKbI krTmKM"
     >
       <span
         class="sc-gZMcBi hQsnUx"
+        data-testid="business-card-online-indicator"
       >
         Online
       </span>
@@ -77,10 +78,11 @@ exports[`BusinessCard Structure - Snapshots renders contact menu when email is p
       </div>
     </div>
     <footer
-      class="sc-iwsKbI kvdqPK"
+      class="sc-iwsKbI krTmKM"
     >
       <span
         class="sc-gZMcBi kIVahm"
+        data-testid="business-card-online-indicator"
       >
         Offline
       </span>
@@ -122,10 +124,11 @@ exports[`BusinessCard Structure - Snapshots renders contact menu when phone numb
       </div>
     </div>
     <footer
-      class="sc-iwsKbI kvdqPK"
+      class="sc-iwsKbI krTmKM"
     >
       <span
         class="sc-gZMcBi kIVahm"
+        data-testid="business-card-online-indicator"
       >
         Offline
       </span>
@@ -140,6 +143,41 @@ exports[`BusinessCard Structure - Snapshots renders contact menu when phone numb
           Contact SpongeBob
         </button>
       </div>
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`BusinessCard Structure - Snapshots renders default structure 1`] = `
+<div>
+  <div
+    class="sc-EHOje jdCcvM"
+  >
+    <div
+      class="sc-bZQynM hzprsO"
+    >
+      <div>
+        <h1
+          class="sc-htoDjs iZtlym"
+        >
+          SpongeBob SquarePants
+        </h1>
+        <h2
+          class="sc-dnqmqq kGYEvA"
+        >
+          Fry cook — Krusty Krab
+        </h2>
+      </div>
+    </div>
+    <footer
+      class="sc-iwsKbI krTmKM"
+    >
+      <span
+        class="sc-gZMcBi kIVahm"
+        data-testid="business-card-online-indicator"
+      >
+        Offline
+      </span>
     </footer>
   </div>
 </div>
@@ -167,10 +205,11 @@ exports[`BusinessCard Structure - Snapshots renders email menu options when emai
       </div>
     </div>
     <footer
-      class="sc-iwsKbI kvdqPK"
+      class="sc-iwsKbI krTmKM"
     >
       <span
         class="sc-gZMcBi kIVahm"
+        data-testid="business-card-online-indicator"
       >
         Offline
       </span>
@@ -209,8 +248,9 @@ exports[`BusinessCard Structure - Snapshots renders head shot 1`] = `
       class="sc-bZQynM hzprsO"
     >
       <div
-        class="sc-gzVnrw cSZKiZ"
+        class="sc-gzVnrw kguMlY"
         data-testid="business-card-image"
+        style="background-image: url(spongebob.jpg);"
       />
       <div>
         <h1
@@ -226,44 +266,11 @@ exports[`BusinessCard Structure - Snapshots renders head shot 1`] = `
       </div>
     </div>
     <footer
-      class="sc-iwsKbI kvdqPK"
+      class="sc-iwsKbI krTmKM"
     >
       <span
         class="sc-gZMcBi kIVahm"
-      >
-        Offline
-      </span>
-    </footer>
-  </div>
-</div>
-`;
-
-exports[`BusinessCard Structure - Snapshots renders offline indicator 1`] = `
-<div>
-  <div
-    class="sc-EHOje jdCcvM"
-  >
-    <div
-      class="sc-bZQynM hzprsO"
-    >
-      <div>
-        <h1
-          class="sc-htoDjs iZtlym"
-        >
-          SpongeBob SquarePants
-        </h1>
-        <h2
-          class="sc-dnqmqq kGYEvA"
-        >
-          Fry cook — Krusty Krab
-        </h2>
-      </div>
-    </div>
-    <footer
-      class="sc-iwsKbI kvdqPK"
-    >
-      <span
-        class="sc-gZMcBi kIVahm"
+        data-testid="business-card-online-indicator"
       >
         Offline
       </span>
@@ -294,10 +301,11 @@ exports[`BusinessCard Structure - Snapshots renders online indicator and contact
       </div>
     </div>
     <footer
-      class="sc-iwsKbI kvdqPK"
+      class="sc-iwsKbI krTmKM"
     >
       <span
         class="sc-gZMcBi hQsnUx"
+        data-testid="business-card-online-indicator"
       >
         Online
       </span>
@@ -339,10 +347,11 @@ exports[`BusinessCard Structure - Snapshots renders phone number menu options wh
       </div>
     </div>
     <footer
-      class="sc-iwsKbI kvdqPK"
+      class="sc-iwsKbI krTmKM"
     >
       <span
         class="sc-gZMcBi kIVahm"
+        data-testid="business-card-online-indicator"
       >
         Offline
       </span>

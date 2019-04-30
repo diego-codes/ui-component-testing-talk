@@ -11,47 +11,58 @@ import {
   OnlineStatus,
 } from './styles';
 
-const BusinessCard = ({
-  firstName,
-  lastName,
-  title,
-  business,
-  online,
-  image,
-  phone,
-  email,
-  onChat,
-  onVoiceCall,
-  onVideoCall,
-  onSMS,
-  onEmail,
-}) => (
-  <Container>
-    <ContactInfo>
-      {image && <HeadShot image={image} data-testid="business-card-image" />}
-      <div>
-        <FullName>{`${firstName} ${lastName}`}</FullName>
-        <Subtitle>{`${title} — ${business}`}</Subtitle>
-      </div>
-    </ContactInfo>
-    <Footer>
-      <OnlineStatus online={online}>{online ? 'Online' : 'Offline'}</OnlineStatus>
-      {(online || phone || email) && (
-        <OverflowMenu toggleText={`Contact ${firstName}`} flipped>
-          {online && <OverflowMenuItem onClick={onChat}>Start chat</OverflowMenuItem>}
-          {phone && (
-            <Fragment>
-              <OverflowMenuItem onClick={onVoiceCall}>Start voice call</OverflowMenuItem>
-              <OverflowMenuItem onClick={onVideoCall}>Start video call</OverflowMenuItem>
-              <OverflowMenuItem onClick={onSMS}>Send SMS</OverflowMenuItem>
-            </Fragment>
-          )}
-          {email && <OverflowMenuItem onClick={onEmail}>Send email</OverflowMenuItem>}
-        </OverflowMenu>
-      )}
-    </Footer>
-  </Container>
-);
+const BusinessCard = props => {
+  const {
+    firstName,
+    lastName,
+    title,
+    business,
+    online,
+    image,
+    phone,
+    email,
+    onChat,
+    onVoiceCall,
+    onVideoCall,
+    onSMS,
+    onEmail,
+  } = props;
+
+  return (
+    <Container>
+      <ContactInfo>
+        {image && (
+          <HeadShot
+            style={{ backgroundImage: `url(${image})` }}
+            data-testid="business-card-image"
+          />
+        )}
+        <div>
+          <FullName>{`${firstName} ${lastName}`}</FullName>
+          <Subtitle>{`${title} — ${business}`}</Subtitle>
+        </div>
+      </ContactInfo>
+      <Footer>
+        <OnlineStatus online={online} data-testid="business-card-online-indicator">
+          {online ? 'Online' : 'Offline'}
+        </OnlineStatus>
+        {(online || phone || email) && (
+          <OverflowMenu toggleText={`Contact ${firstName}`} flipped>
+            {online && <OverflowMenuItem onClick={onChat}>Start chat</OverflowMenuItem>}
+            {phone && (
+              <Fragment>
+                <OverflowMenuItem onClick={onVoiceCall}>Start voice call</OverflowMenuItem>
+                <OverflowMenuItem onClick={onVideoCall}>Start video call</OverflowMenuItem>
+                <OverflowMenuItem onClick={onSMS}>Send SMS</OverflowMenuItem>
+              </Fragment>
+            )}
+            {email && <OverflowMenuItem onClick={onEmail}>Send email</OverflowMenuItem>}
+          </OverflowMenu>
+        )}
+      </Footer>
+    </Container>
+  );
+};
 
 BusinessCard.propTypes = {
   firstName: PropTypes.string.isRequired,

@@ -20,7 +20,6 @@ export const HeadShot = styled.div`
   width: 5em;
   height: 5em;
   display: inline-block;
-  background-image: url(${props => props.image});
   background-size: cover;
   background-position: center;
   background-repeat: none;
@@ -49,7 +48,7 @@ export const Footer = styled.footer`
   align-items: center;
   background-color: ${gray[90]};
   font-size: 0.9em;
-  height: 2em;
+  min-height: 2em;
   color: ${gray[10]};
 `;
 

@@ -73,7 +73,8 @@ describe(OverflowMenu.name, () => {
       );
       const windowRemoveEvenListenerSpy = jest.spyOn(window, 'removeEventListener');
       unmount();
-      expect(windowRemoveEvenListenerSpy).toHaveBeenCalled();
+      expect(windowRemoveEvenListenerSpy).toHaveBeenCalledWith('click', expect.any(Function));
+      windowRemoveEvenListenerSpy.mockRestore();
     });
   });
 

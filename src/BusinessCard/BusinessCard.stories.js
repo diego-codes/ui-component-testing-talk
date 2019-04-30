@@ -13,7 +13,7 @@ stories.add('default', () => (
   <BusinessCard
     firstName={text('firstName', 'Squidward')}
     lastName={text('lastName', 'Tentacles')}
-    title={text('title', 'Cashier & Clarinet master')}
+    title={text('title', 'Cashier/Clarinet master')}
     business={text('business', 'Krusty Krab')}
     online={boolean('online')}
     email={text('email')}
