@@ -6,7 +6,7 @@
   --accent-background-color: #111;
 
   /*  Primary/body text */
-  --main-font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+  --main-font-family: "IBM Plex Sans", Helvetica, sans-serif;
   --main-font-size: 2.5rem;
   --main-text-color: #d8dce3;
 
@@ -30,7 +30,7 @@
   --heading-4-size: 1em;
 
   /* Code font */
-  --code-font-family: "Fira Mono", monospace;
+  --code-font-family: "IBM Plex Mono", monospace;
 
   /* Links and actions */
   --link-color: var(--accent-color);
