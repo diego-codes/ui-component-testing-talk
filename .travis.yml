@@ -11,7 +11,7 @@ script:
   - npm run build
 
 before_deploy:
-  - sh publish.sh
+  - npm run build
 
 deploy:
   provider: pages
