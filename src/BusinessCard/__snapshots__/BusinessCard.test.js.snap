@@ -3,7 +3,7 @@
 exports[`BusinessCard Structure - Snapshots renders chat menu options when contact is online 1`] = `
 <div>
   <div
-    class="sc-EHOje jdCcvM"
+    class="sc-EHOje jTBgGQ"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -59,7 +59,7 @@ exports[`BusinessCard Structure - Snapshots renders chat menu options when conta
 exports[`BusinessCard Structure - Snapshots renders contact menu when email is provided 1`] = `
 <div>
   <div
-    class="sc-EHOje jdCcvM"
+    class="sc-EHOje jTBgGQ"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -105,7 +105,7 @@ exports[`BusinessCard Structure - Snapshots renders contact menu when email is p
 exports[`BusinessCard Structure - Snapshots renders contact menu when phone number is provided 1`] = `
 <div>
   <div
-    class="sc-EHOje jdCcvM"
+    class="sc-EHOje jTBgGQ"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -151,7 +151,7 @@ exports[`BusinessCard Structure - Snapshots renders contact menu when phone numb
 exports[`BusinessCard Structure - Snapshots renders default structure 1`] = `
 <div>
   <div
-    class="sc-EHOje jdCcvM"
+    class="sc-EHOje jTBgGQ"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -186,7 +186,7 @@ exports[`BusinessCard Structure - Snapshots renders default structure 1`] = `
 exports[`BusinessCard Structure - Snapshots renders email menu options when email is provided 1`] = `
 <div>
   <div
-    class="sc-EHOje jdCcvM"
+    class="sc-EHOje jTBgGQ"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -242,7 +242,7 @@ exports[`BusinessCard Structure - Snapshots renders email menu options when emai
 exports[`BusinessCard Structure - Snapshots renders head shot 1`] = `
 <div>
   <div
-    class="sc-EHOje jdCcvM"
+    class="sc-EHOje jTBgGQ"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -282,7 +282,7 @@ exports[`BusinessCard Structure - Snapshots renders head shot 1`] = `
 exports[`BusinessCard Structure - Snapshots renders online indicator and contact menu 1`] = `
 <div>
   <div
-    class="sc-EHOje jdCcvM"
+    class="sc-EHOje jTBgGQ"
   >
     <div
       class="sc-bZQynM hzprsO"
@@ -328,7 +328,7 @@ exports[`BusinessCard Structure - Snapshots renders online indicator and contact
 exports[`BusinessCard Structure - Snapshots renders phone number menu options when phone number is provided 1`] = `
 <div>
   <div
-    class="sc-EHOje jdCcvM"
+    class="sc-EHOje jTBgGQ"
   >
     <div
       class="sc-bZQynM hzprsO"

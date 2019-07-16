@@ -1,6 +1,5 @@
-import { axe } from 'jest-axe';
 import React from 'react';
-import { render, fireEvent } from 'react-testing-library';
+import { render, fireEvent } from '@testing-library/react';
 import { OverflowMenu, OverflowMenuItem } from '.';
 
 describe(OverflowMenu.name, () => {
@@ -75,42 +74,6 @@ describe(OverflowMenu.name, () => {
       unmount();
       expect(windowRemoveEvenListenerSpy).toHaveBeenCalledWith('click', expect.any(Function));
       windowRemoveEvenListenerSpy.mockRestore();
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('does not contain accessibility violations by default', async () => {
-      const { container } = render(
-        <OverflowMenu toggleText="Toggle menu">
-          <OverflowMenuItem>Option 1</OverflowMenuItem>
-          <OverflowMenuItem>Option 2</OverflowMenuItem>
-        </OverflowMenu>
-      );
-      const results = await axe(container.innerHTML);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('does not contain accessibility violations when flipped', async () => {
-      const { container } = render(
-        <OverflowMenu toggleText="Toggle menu" flipped>
-          <OverflowMenuItem>Option 1</OverflowMenuItem>
-          <OverflowMenuItem>Option 2</OverflowMenuItem>
-        </OverflowMenu>
-      );
-      const results = await axe(container.innerHTML);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('does not contain accessibility violations when open', async () => {
-      const { container, getByTestId } = render(
-        <OverflowMenu toggleText="Toggle menu">
-          <OverflowMenuItem>Option 1</OverflowMenuItem>
-          <OverflowMenuItem>Option 2</OverflowMenuItem>
-        </OverflowMenu>
-      );
-      fireEvent.click(getByTestId('overflow-menu-toggle'));
-      const results = await axe(container.innerHTML);
-      expect(results).toHaveNoViolations();
     });
   });
 });

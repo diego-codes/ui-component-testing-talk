@@ -5,8 +5,7 @@ import {
   queryByTestId,
   queryAllByText,
   fireEvent,
-} from 'react-testing-library';
-import { axe } from 'jest-axe';
+} from '@testing-library/react';
 import BusinessCard from '.';
 
 const contact = {
@@ -207,31 +206,6 @@ describe(BusinessCard.name, () => {
       fireEvent.click(getByTestId('overflow-menu-toggle'));
       fireEvent.click(getByText(/email/i));
       expect(sendEmail).toHaveBeenCalledTimes(1);
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('default does not have accessibility violation', async () => {
-      const { container } = render(<BusinessCard {...contact} />);
-      const results = await axe(container.innerHTML);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('does not have accessibility violation with closed contact menu', async () => {
-      const { container } = render(
-        <BusinessCard {...contact} online email={email} phone={phone} />
-      );
-      const results = await axe(container.innerHTML);
-      expect(results).toHaveNoViolations();
-    });
-
-    it('does not have accessibility violation with open contact menu', async () => {
-      const { container, getByTestId } = render(
-        <BusinessCard {...contact} online email={email} phone={phone} />
-      );
-      fireEvent.click(getByTestId('overflow-menu-toggle'));
-      const results = await axe(container.innerHTML);
-      expect(results).toHaveNoViolations();
     });
   });
 });
