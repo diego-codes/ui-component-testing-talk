@@ -1,79 +1,85 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { OverflowMenu, OverflowMenuItem } from '.';
+import { OverflowMenu, MenuItem } from '.';
 
-describe(OverflowMenu.name, () => {
-  describe('Structure', () => {
-    it('renders closed', () => {
-      const { container } = render(
-        <OverflowMenu toggleText="Toggle menu">
-          <OverflowMenuItem>Option 1</OverflowMenuItem>
-          <OverflowMenuItem>Option 2</OverflowMenuItem>
-        </OverflowMenu>
-      );
-      expect(container).toMatchSnapshot();
-    });
-  });
+test('toggle button has toggle text', () => {
+  const { getByTestId } = render(
+    <OverflowMenu toggleText="Toggle menu">
+      <MenuItem>Option 1</MenuItem>
+      <MenuItem>Option 2</MenuItem>
+    </OverflowMenu>
+  );
+  const toggleButton = getByTestId('overflow-toggle');
+  expect(toggleButton).toHaveTextContent('Toggle menu');
+});
 
-  describe('Behavior', () => {
-    it('renders options when opened', () => {
-      const { container, getByTestId } = render(
-        <OverflowMenu toggleText="Toggle menu">
-          <OverflowMenuItem>Option 1</OverflowMenuItem>
-          <OverflowMenuItem>Option 2</OverflowMenuItem>
-        </OverflowMenu>
-      );
-      fireEvent.click(getByTestId('overflow-menu-toggle'));
-      expect(container).toMatchSnapshot();
-    });
+test('toggle button has compact icon', () => {
+  const { getByTestId } = render(
+    <OverflowMenu toggleText="Toggle menu" compact>
+      <MenuItem>Option 1</MenuItem>
+      <MenuItem>Option 2</MenuItem>
+    </OverflowMenu>
+  );
+  const toggleIcon = getByTestId('overflow-toggle-icon');
+  expect(toggleIcon).not.toBeNull();
+});
 
-    it('hides options when toggle button is pressed twice', () => {
-      const { container, getByTestId } = render(
-        <OverflowMenu toggleText="Toggle menu">
-          <OverflowMenuItem>Option 1</OverflowMenuItem>
-          <OverflowMenuItem>Option 2</OverflowMenuItem>
-        </OverflowMenu>
-      );
-      fireEvent.click(getByTestId('overflow-menu-toggle'));
-      fireEvent.click(getByTestId('overflow-menu-toggle'));
-      expect(container).toMatchSnapshot();
-    });
+test('toggle menu is flipped', () => {
+  const { getByTestId } = render(
+    <OverflowMenu toggleText="Toggle menu" flipped open>
+      <MenuItem>Option 1</MenuItem>
+      <MenuItem>Option 2</MenuItem>
+    </OverflowMenu>
+  );
+  const toggleIcon = getByTestId('overflow-menu');
+  expect(toggleIcon).toHaveStyle('right: 0; left: unset');
+});
+test('shows items when user clicks on toggle', () => {
+  const { getByText } = render(
+    <OverflowMenu toggleText="Toggle menu">
+      <MenuItem>Option 1</MenuItem>
+      <MenuItem>Option 2</MenuItem>
+    </OverflowMenu>
+  );
+  fireEvent.click(getByText('Toggle menu'));
+  expect(getByText('Option 1')).toBeVisible();
+});
 
-    it('closes menu when user clicks outside of menu', () => {
-      const { container, getByTestId } = render(
-        <OverflowMenu toggleText="Toggle menu">
-          <OverflowMenuItem>Option 1</OverflowMenuItem>
-          <OverflowMenuItem>Option 2</OverflowMenuItem>
-        </OverflowMenu>
-      );
-      fireEvent.click(getByTestId('overflow-menu-toggle'));
-      fireEvent.click(document.body);
-      expect(container).toMatchSnapshot();
-    });
+test('calls onOpen when user opens menu', () => {
+  const onOpenMock = jest.fn();
+  const { getByText } = render(
+    <OverflowMenu toggleText="Toggle menu" onOpen={onOpenMock}>
+      <MenuItem>Option 1</MenuItem>
+      <MenuItem>Option 2</MenuItem>
+    </OverflowMenu>
+  );
 
-    it('does not close menu when user clicks inside of menu', () => {
-      const { container, getByTestId } = render(
-        <OverflowMenu toggleText="Toggle menu">
-          <OverflowMenuItem data-testid="option">Option 1</OverflowMenuItem>
-          <OverflowMenuItem>Option 2</OverflowMenuItem>
-        </OverflowMenu>
-      );
-      fireEvent.click(getByTestId('overflow-menu-toggle'));
-      fireEvent.click(getByTestId('option'));
-      expect(container).toMatchSnapshot();
-    });
+  fireEvent.click(getByText('Toggle menu'));
+  expect(onOpenMock).toHaveBeenCalledTimes(1);
+});
 
-    it('removes click event listener when component unmounts', () => {
-      const { unmount } = render(
-        <OverflowMenu toggleText="Toggle menu">
-          <OverflowMenuItem>Option 1</OverflowMenuItem>
-          <OverflowMenuItem>Option 2</OverflowMenuItem>
-        </OverflowMenu>
-      );
-      const windowRemoveEvenListenerSpy = jest.spyOn(window, 'removeEventListener');
-      unmount();
-      expect(windowRemoveEvenListenerSpy).toHaveBeenCalledWith('click', expect.any(Function));
-      windowRemoveEvenListenerSpy.mockRestore();
-    });
-  });
+test('calls onClose when user clicks outside menu', () => {
+  const onCloseMock = jest.fn();
+  const { getByText } = render(
+    <OverflowMenu toggleText="Toggle menu" onClose={onCloseMock}>
+      <MenuItem>Option 1</MenuItem>
+      <MenuItem>Option 2</MenuItem>
+    </OverflowMenu>
+  );
+
+  fireEvent.click(getByText('Toggle menu'));
+  fireEvent.click(document.body);
+  expect(onCloseMock).toHaveBeenCalledTimes(1);
+});
+
+test('removes click event listener when component unmounts', () => {
+  const removeListenerSpy = jest.spyOn(document, 'removeEventListener');
+  const { unmount } = render(
+    <OverflowMenu toggleText="Toggle menu">
+      <MenuItem>Option 1</MenuItem>
+      <MenuItem>Option 2</MenuItem>
+    </OverflowMenu>
+  );
+  unmount();
+  expect(removeListenerSpy).toHaveBeenCalledTimes(1);
 });
