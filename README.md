@@ -1,4 +1,4 @@
-# Reinforcing your blocks: A practical guide to UI component testing
+# Reinforcing your blocks: A practical guide to UI component testing [![Build Status](https://travis-ci.org/diego-codes/ui-component-testing-talk.svg?branch=master)](https://travis-ci.org/diego-codes/ui-component-testing-talk)
 
 A talk about about UI component testing for structure, visual, interaction, and accessibility behaviors. 
 
