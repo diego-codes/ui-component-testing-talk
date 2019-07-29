@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, queryByText } from '@testing-library/react';
 import { OverflowMenu, MenuItem } from '.';
 
 test('toggle button has toggle text', () => {
@@ -13,27 +13,6 @@ test('toggle button has toggle text', () => {
   expect(toggleButton).toHaveTextContent('Open menu');
 });
 
-test('toggle button has compact icon', () => {
-  const { getByTestId } = render(
-    <OverflowMenu toggleText="Open menu" compact>
-      <MenuItem>Option 1</MenuItem>
-      <MenuItem>Option 2</MenuItem>
-    </OverflowMenu>
-  );
-  const toggleIcon = getByTestId('overflow-toggle-icon');
-  expect(toggleIcon).not.toBeNull();
-});
-
-test('Open menu is flipped', () => {
-  const { getByTestId } = render(
-    <OverflowMenu toggleText="Open menu" flipped open>
-      <MenuItem>Option 1</MenuItem>
-      <MenuItem>Option 2</MenuItem>
-    </OverflowMenu>
-  );
-  const toggleIcon = getByTestId('overflow-menu');
-  expect(toggleIcon).toHaveStyle('right: 0; left: unset');
-});
 test('shows items when user clicks on toggle', () => {
   const { getByText } = render(
     <OverflowMenu toggleText="Open menu">
@@ -43,6 +22,30 @@ test('shows items when user clicks on toggle', () => {
   );
   fireEvent.click(getByText('Open menu'));
   expect(getByText('Option 1')).toBeVisible();
+});
+
+test('Menu is flipped', () => {
+  const { getByTestId, getByText } = render(
+    <OverflowMenu toggleText="Open menu" flipped>
+      <MenuItem>Option 1</MenuItem>
+      <MenuItem>Option 2</MenuItem>
+    </OverflowMenu>
+  );
+  fireEvent.click(getByText('Open menu'));
+  const menuItems = getByTestId('overflow-items');
+  expect(menuItems).toHaveStyle('right: 0; left: unset');
+});
+
+test('clicking on menu item closes overflow menu', () => {
+  const { getByText, container } = render(
+    <OverflowMenu toggleText="Open menu">
+      <MenuItem>Option 1</MenuItem>
+      <MenuItem>Option 2</MenuItem>
+    </OverflowMenu>
+  );
+  fireEvent.click(getByText('Open menu'));
+  fireEvent.click(getByText('Option 1'));
+  expect(queryByText(container, 'Option 1')).toBeNull();
 });
 
 test('calls onOpen when user opens menu', () => {

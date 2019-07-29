@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { OverflowMenu, OverflowMenuItem } from '../OverflowMenu';
+import { OverflowMenu, MenuItem } from '../OverflowMenu';
 import {
   Container,
   ContactInfo,
+  ContactInfoWrapper,
   HeadShot,
   FullName,
   Subtitle,
@@ -11,7 +12,7 @@ import {
   OnlineStatus,
 } from './styles';
 
-const BusinessCard = props => {
+const ContactCard = props => {
   const {
     firstName,
     lastName,
@@ -37,10 +38,10 @@ const BusinessCard = props => {
             data-testid="business-card-image"
           />
         )}
-        <div>
+        <ContactInfoWrapper>
           <FullName>{`${firstName} ${lastName}`}</FullName>
           <Subtitle>{`${title} — ${business}`}</Subtitle>
-        </div>
+        </ContactInfoWrapper>
       </ContactInfo>
       <Footer>
         <OnlineStatus online={online} data-testid="business-card-online-indicator">
@@ -48,15 +49,15 @@ const BusinessCard = props => {
         </OnlineStatus>
         {(online || phone || email) && (
           <OverflowMenu toggleText={`Contact ${firstName}`} flipped>
-            {online && <OverflowMenuItem onClick={onChat}>Start chat</OverflowMenuItem>}
+            {online && <MenuItem onClick={onChat}>Start chat</MenuItem>}
             {phone && (
               <Fragment>
-                <OverflowMenuItem onClick={onVoiceCall}>Start voice call</OverflowMenuItem>
-                <OverflowMenuItem onClick={onVideoCall}>Start video call</OverflowMenuItem>
-                <OverflowMenuItem onClick={onSMS}>Send SMS</OverflowMenuItem>
+                <MenuItem onClick={onVoiceCall}>Start voice call</MenuItem>
+                <MenuItem onClick={onVideoCall}>Start video call</MenuItem>
+                <MenuItem onClick={onSMS}>Send SMS</MenuItem>
               </Fragment>
             )}
-            {email && <OverflowMenuItem onClick={onEmail}>Send email</OverflowMenuItem>}
+            {email && <MenuItem onClick={onEmail}>Send email</MenuItem>}
           </OverflowMenu>
         )}
       </Footer>
@@ -64,7 +65,7 @@ const BusinessCard = props => {
   );
 };
 
-BusinessCard.propTypes = {
+ContactCard.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
@@ -80,7 +81,7 @@ BusinessCard.propTypes = {
   onEmail: PropTypes.func,
 };
 
-BusinessCard.defaultProps = {
+ContactCard.defaultProps = {
   online: false,
   image: undefined,
   phone: undefined,
@@ -92,4 +93,4 @@ BusinessCard.defaultProps = {
   onEmail: () => {},
 };
 
-export default BusinessCard;
+export default ContactCard;

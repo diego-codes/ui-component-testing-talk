@@ -2,20 +2,27 @@ import styled from 'styled-components';
 import { gray, green } from '@carbon/colors';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: ${gray[10]};
   color: ${gray[90]};
-  max-width: 32em;
 `;
 
 export const ContactInfo = styled.div`
   padding: 2em;
+  flex: auto;
   display: flex;
   align-items: center;
+`;
+
+export const ContactInfoWrapper = styled.div`
+  flex: auto;
 `;
 
 export const HeadShot = styled.div`
   width: 5em;
   height: 5em;
+  flex: 0 0 5em;
   display: inline-block;
   background-size: cover;
   background-position: center;

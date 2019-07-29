@@ -8,10 +8,14 @@ class OverflowMenu extends Component {
     toggleText: PropTypes.node.isRequired,
     children: PropTypes.node.isRequired,
     flipped: PropTypes.bool,
+    onOpen: PropTypes.func,
+    onClose: PropTypes.func,
   };
 
   static defaultProps = {
     flipped: false,
+    onOpen: () => {},
+    onClose: () => {},
   };
 
   state = {
@@ -20,38 +24,51 @@ class OverflowMenu extends Component {
 
   container = React.createRef();
 
-  componentDidMount = () => {
-    window.addEventListener('click', this.handleWindowClick);
-  };
-
   componentWillUnmount = () => {
-    window.removeEventListener('click', this.handleWindowClick);
+    document.removeEventListener('click', this.handleDocumentClick);
   };
 
-  open = () => this.setState({ open: true });
+  open = () => {
+    const { onOpen } = this.props;
+    document.addEventListener('click', this.handleDocumentClick);
+    this.setState({ open: true });
+    onOpen();
+  };
 
-  close = () => this.setState({ open: false });
+  close = () => {
+    const { onClose } = this.props;
+    document.removeEventListener('click', this.handleDocumentClick);
+    this.setState({ open: false });
+    onClose();
+  };
 
   toggle = () => {
     const { open } = this.state;
-    this.setState({ open: !open });
+    if (open) {
+      this.close();
+    } else {
+      this.open();
+    }
   };
 
-  handleWindowClick = ({ target }) => {
-    if (!this.container.current.contains(target)) {
-      this.close();
-    }
+  handleDocumentClick = () => {
+    this.close();
   };
 
   render = () => {
     const { toggleText, children, flipped } = this.props;
     const { open } = this.state;
+
     return (
       <Container ref={this.container} data-testid="overflow-menu">
-        <ToggleButton open={open} onClick={this.toggle} data-testid="overflow-menu-toggle">
+        <ToggleButton open={open} onClick={this.toggle} data-testid="overflow-toggle">
           {toggleText}
         </ToggleButton>
-        {open && <Menu flipped={flipped}>{children}</Menu>}
+        {open && (
+          <Menu flipped={flipped} data-testid="overflow-items">
+            {children}
+          </Menu>
+        )}
       </Container>
     );
   };

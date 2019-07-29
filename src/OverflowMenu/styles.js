@@ -51,4 +51,6 @@ export const Menu = styled.div`
   background-color: ${gray[80]};
   min-width: 15em;
   box-shadow: 0 5px 1em ${rgba(gray[100], 0.3)};
+  max-height: 9em;
+  overflow: auto;
 `;

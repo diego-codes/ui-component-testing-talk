@@ -2,15 +2,21 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import { text, boolean } from '@storybook/addon-knobs';
+import Center from '../../.storybook/Center';
 
-import BusinessCard from '.';
+import ContactCard from '.';
 
-const stories = storiesOf(BusinessCard.name, module);
+const stories = storiesOf('ContactCard', module);
+stories.addDecorator(story => (
+  <Center>
+    <div style={{ width: '32em' }}>{story()}</div>
+  </Center>
+));
 
 const eventListeners = actions('onChat', 'onVoiceCall', 'onVideoCall', 'onSMS', 'onEmail');
 
 stories.add('default', () => (
-  <BusinessCard
+  <ContactCard
     firstName={text('firstName', 'Squidward')}
     lastName={text('lastName', 'Tentacles')}
     title={text('title', 'Cashier/Clarinet master')}
@@ -23,7 +29,7 @@ stories.add('default', () => (
 ));
 
 stories.add('online', () => (
-  <BusinessCard
+  <ContactCard
     image="https://pbs.twimg.com/profile_images/439113071902998528/H3CCnV1C.jpeg"
     firstName={text('firstName', 'Eugene')}
     lastName={text('lastName', 'Krabs')}
@@ -37,7 +43,7 @@ stories.add('online', () => (
 ));
 
 stories.add('with phone number', () => (
-  <BusinessCard
+  <ContactCard
     image="http://en.spongepedia.org/images/thumb/5/55/SpongeBob_SquarePants_Sheldon_Plankton.jpg/250px-SpongeBob_SquarePants_Sheldon_Plankton.jpg"
     firstName={text('firstName', 'Sheldon')}
     lastName={text('lastName', 'Plankton')}
@@ -51,7 +57,7 @@ stories.add('with phone number', () => (
 ));
 
 stories.add('with email', () => (
-  <BusinessCard
+  <ContactCard
     image="https://pbs.twimg.com/profile_images/532352938392293376/15Zj9aOq_400x400.png"
     firstName={text('firstName', 'Sandy')}
     lastName={text('lastName', 'Cheeks')}
@@ -65,7 +71,7 @@ stories.add('with email', () => (
 ));
 
 stories.add('online with all contact info', () => (
-  <BusinessCard
+  <ContactCard
     image="https://pbs.twimg.com/profile_images/1856175966/Spongebob_400x400.jpg"
     firstName={text('firstName', 'SpongeBob')}
     lastName={text('lastName', 'SquarePants')}
