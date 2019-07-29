@@ -12,9 +12,9 @@ export const ButtonReset = styled.button`
   border: 0;
   font: inherit;
   line-height: inherit;
-  color: ${cyan[20]};
+  color: ${cyan[30]};
   cursor: pointer;
-  padding: 0.5em 0.8em;
+  padding: 0.4em 0.5em;
   display: inline-block;
   text-align: left;
 
@@ -51,8 +51,4 @@ export const Menu = styled.div`
   background-color: ${gray[80]};
   min-width: 15em;
   box-shadow: 0 5px 1em ${rgba(gray[100], 0.3)};
-`;
-
-export const Icon = styled.svg`
-  fill: white;
 `;

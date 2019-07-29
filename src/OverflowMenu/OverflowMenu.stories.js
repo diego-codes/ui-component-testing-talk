@@ -13,7 +13,7 @@ const Center = styled.div`
   align-items: center;
 `;
 
-const stories = storiesOf('OverflowMenu', module);
+const stories = storiesOf(OverflowMenu.name, module);
 stories.addDecorator(story => <Center>{story()}</Center>);
 
 stories.add('default', () => (
