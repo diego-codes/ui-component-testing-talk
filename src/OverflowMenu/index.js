@@ -22,8 +22,6 @@ class OverflowMenu extends Component {
     open: false,
   };
 
-  container = React.createRef();
-
   componentWillUnmount = () => {
     document.removeEventListener('click', this.handleDocumentClick);
   };
@@ -60,7 +58,7 @@ class OverflowMenu extends Component {
     const { open } = this.state;
 
     return (
-      <Container ref={this.container} data-testid="overflow-menu">
+      <Container data-testid="overflow-menu">
         <ToggleButton open={open} onClick={this.toggle} data-testid="overflow-toggle">
           {toggleText}
         </ToggleButton>
