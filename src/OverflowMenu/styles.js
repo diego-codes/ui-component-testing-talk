@@ -28,6 +28,11 @@ export const ButtonReset = styled.button`
 `;
 
 export const ToggleButton = styled(ButtonReset)`
+  max-width: 12em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   &,
   :hover {
     background-color: ${({ open }) => (open ? gray[80] : gray[90])};
