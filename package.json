@@ -8,7 +8,7 @@
     "test": "npm run lint && react-scripts test",
     "lint": "eslint src",
     "storybook": "start-storybook -p 9000",
-    "build-storybook": "build-storybook -o docs"
+    "build-storybook": "build-storybook -o dist"
   },
   "dependencies": {
     "@carbon/colors": "^10.1.1",
