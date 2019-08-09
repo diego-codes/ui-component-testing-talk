@@ -24,6 +24,7 @@ stories.add('default', () => (
     online={boolean('online')}
     email={text('email')}
     phone={text('phone')}
+    loading={boolean('loading')}
     {...eventListeners}
   />
 ));
@@ -38,6 +39,7 @@ stories.add('online', () => (
     online={boolean('online', true)}
     email={text('email')}
     phone={text('phone')}
+    loading={boolean('loading')}
     {...eventListeners}
   />
 ));
@@ -52,6 +54,7 @@ stories.add('with phone number', () => (
     online={boolean('online')}
     email={text('email')}
     phone={text('phone', '555-555-5555')}
+    loading={boolean('loading')}
     {...eventListeners}
   />
 ));
@@ -66,6 +69,7 @@ stories.add('with email', () => (
     online={boolean('online')}
     email={text('email', 'sandy.cheeks@scientist.sea')}
     phone={text('phone')}
+    loading={boolean('loading')}
     {...eventListeners}
   />
 ));
@@ -80,6 +84,9 @@ stories.add('online with all contact info', () => (
     online={boolean('online', true)}
     email={text('email', 's.sqarepants@krabby.com')}
     phone={text('phone', '555-555-5555')}
+    loading={boolean('loading')}
     {...eventListeners}
   />
 ));
+
+stories.add('loading', () => <ContactCard loading={boolean('loading', true)} />);

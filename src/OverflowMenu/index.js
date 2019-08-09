@@ -58,15 +58,11 @@ class OverflowMenu extends Component {
     const { open } = this.state;
 
     return (
-      <Container data-testid="overflow-menu">
-        <ToggleButton open={open} onClick={this.toggle} data-testid="overflow-toggle">
+      <Container>
+        <ToggleButton open={open} onClick={this.toggle}>
           {toggleText}
         </ToggleButton>
-        {open && (
-          <Menu flipped={flipped} data-testid="overflow-items">
-            {children}
-          </Menu>
-        )}
+        {open && <Menu flipped={flipped}>{children}</Menu>}
       </Container>
     );
   };

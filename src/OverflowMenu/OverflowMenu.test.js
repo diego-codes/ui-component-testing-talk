@@ -1,70 +1,48 @@
 import React from 'react';
-import { render, fireEvent, queryByText } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { OverflowMenu, MenuItem } from '.';
 
-test('toggle button has toggle text', () => {
-  const { getByTestId } = render(
+test('options are not visible by default', () => {
+  const { queryByText } = render(
     <OverflowMenu toggleText="Open menu">
       <MenuItem>Option 1</MenuItem>
       <MenuItem>Option 2</MenuItem>
     </OverflowMenu>
   );
-  const toggleButton = getByTestId('overflow-toggle');
-  expect(toggleButton).toHaveTextContent('Open menu');
+
+  expect(queryByText(/Option/)).toBeNull();
 });
 
-test('shows items when user clicks on toggle', () => {
-  const { getByText } = render(
+test('options are visible when toggle button is clicked', () => {
+  const { getAllByText, getByText } = render(
     <OverflowMenu toggleText="Open menu">
       <MenuItem>Option 1</MenuItem>
       <MenuItem>Option 2</MenuItem>
     </OverflowMenu>
   );
+
   fireEvent.click(getByText('Open menu'));
-  expect(getByText('Option 1')).toBeVisible();
+  const options = getAllByText(/Option/);
+  expect(options[0]).toHaveTextContent('Option 1');
+  expect(options[1]).toHaveTextContent('Option 2');
 });
 
-test('Menu is flipped', () => {
-  const { getByTestId, getByText } = render(
-    <OverflowMenu toggleText="Open menu" flipped>
-      <MenuItem>Option 1</MenuItem>
-      <MenuItem>Option 2</MenuItem>
-    </OverflowMenu>
-  );
-  fireEvent.click(getByText('Open menu'));
-  const menuItems = getByTestId('overflow-items');
-  expect(menuItems).toHaveStyle('right: 0; left: unset');
-});
-
-test('clicking on menu item closes overflow menu', () => {
-  const { getByText, container } = render(
+test('options are hidden when toggle button is clicked twice', () => {
+  const { queryByText, getByText } = render(
     <OverflowMenu toggleText="Open menu">
       <MenuItem>Option 1</MenuItem>
       <MenuItem>Option 2</MenuItem>
     </OverflowMenu>
   );
-  fireEvent.click(getByText('Open menu'));
-  fireEvent.click(getByText('Option 1'));
-  expect(queryByText(container, 'Option 1')).toBeNull();
-});
-
-test('calls onOpen when user opens menu', () => {
-  const onOpenMock = jest.fn();
-  const { getByText } = render(
-    <OverflowMenu toggleText="Open menu" onOpen={onOpenMock}>
-      <MenuItem>Option 1</MenuItem>
-      <MenuItem>Option 2</MenuItem>
-    </OverflowMenu>
-  );
 
   fireEvent.click(getByText('Open menu'));
-  expect(onOpenMock).toHaveBeenCalledTimes(1);
+  fireEvent.click(getByText('Open menu'));
+  expect(queryByText(/Option/)).toBeNull();
 });
 
-test('calls onClose when user clicks outside menu', () => {
-  const onCloseMock = jest.fn();
-  const { getByText } = render(
-    <OverflowMenu toggleText="Open menu" onClose={onCloseMock}>
+test('options are hidden when the menu is open and the user clicks outside of it', () => {
+  const { queryByText, getByText } = render(
+    <OverflowMenu toggleText="Open menu">
       <MenuItem>Option 1</MenuItem>
       <MenuItem>Option 2</MenuItem>
     </OverflowMenu>
@@ -72,17 +50,33 @@ test('calls onClose when user clicks outside menu', () => {
 
   fireEvent.click(getByText('Open menu'));
   fireEvent.click(document.body);
-  expect(onCloseMock).toHaveBeenCalledTimes(1);
+  expect(queryByText(/Option/)).toBeNull();
 });
 
-test('removes click event listener when component unmounts', () => {
-  const removeListenerSpy = jest.spyOn(document, 'removeEventListener');
-  const { unmount } = render(
+test('menu options calls on click function when clicked', () => {
+  const onClickMock = jest.fn();
+  const { getByText } = render(
+    <OverflowMenu toggleText="Open menu">
+      <MenuItem onClick={onClickMock}>Option 1</MenuItem>
+      <MenuItem>Option 2</MenuItem>
+    </OverflowMenu>
+  );
+
+  fireEvent.click(getByText('Open menu'));
+  fireEvent.click(getByText('Option 1'));
+  expect(onClickMock).toHaveBeenCalledTimes(1);
+});
+
+test('options are hidden when the user makes a selection', () => {
+  const { getByText } = render(
     <OverflowMenu toggleText="Open menu">
       <MenuItem>Option 1</MenuItem>
       <MenuItem>Option 2</MenuItem>
     </OverflowMenu>
   );
-  unmount();
-  expect(removeListenerSpy).toHaveBeenCalledTimes(1);
+
+  fireEvent.click(getByText('Open menu'));
+  const option1 = getByText('Option 1');
+  fireEvent.click(option1);
+  expect(option1).not.toBeInTheDocument();
 });

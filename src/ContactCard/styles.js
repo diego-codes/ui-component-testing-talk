@@ -19,7 +19,7 @@ export const ContactInfoWrapper = styled.div`
   flex: auto;
 `;
 
-export const HeadShot = styled.div`
+export const Avatar = styled.div`
   width: 5em;
   height: 5em;
   flex: 0 0 5em;
@@ -29,6 +29,41 @@ export const HeadShot = styled.div`
   background-repeat: none;
   border-radius: 4px;
   margin-right: 1em;
+`;
+
+export const LoadingText = styled.div`
+  height: 0.8em;
+  width: 70%;
+  margin-bottom: 0.3em;
+  background-color: ${gray[20]};
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: ${gray[30]};
+    animation: loading-text 3s ease-in-out alternate-reverse infinite;
+  }
+
+  @keyframes loading-text {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+`;
+
+export const LoadingTitle = styled(LoadingText)`
+  height: 2em;
+  width: 80%;
+  margin-bottom: 0.5em;
 `;
 
 export const FullName = styled.h1`
