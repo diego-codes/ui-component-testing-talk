@@ -2,7 +2,7 @@
 
 A talk about about UI component testing for structure, visual, interaction, and accessibility behaviors. 
 
-[**Slides**](https://diego-codes.github.io/ui-component-testing-talk/) | [**Storybook**](https://diego-codes.github.io/ui-component-testing-talk/storybook/)
+[**Slides**](slides/ui-testing-talk-slides.pdf) | [**Storybook**](https://diego-codes.github.io/ui-component-testing-talk/)
 
 ## Resources
 - [Jest](https://jestjs.io/): a delightful JavaScript Testing Framework with a focus on simplicity. It works with projects using: Babel, TypeScript, Node, React, Angular, Vue and more!
