@@ -8,6 +8,8 @@ cache:
 
 script:
   - npm test
+
+before_deploy:
   - npm run build
 
 deploy:
