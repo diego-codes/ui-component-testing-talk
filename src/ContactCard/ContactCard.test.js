@@ -20,7 +20,7 @@ test('contains full name', () => {
 
 test('doesn not display headshot if image is not provided', () => {
   const { queryByLabelText } = render(<ContactCard {...contact} />);
-  expect(queryByLabelText(`Avatar image of ${contact.firstName}`)).toBeNull();
+  expect(queryByLabelText(`Avatar image of ${contact.firstName}`)).not.toBeInTheDocument();
 });
 
 test('displays avatar when provided', () => {
@@ -32,7 +32,7 @@ test('displays avatar when provided', () => {
 
 test('does not contain contact menu by default', () => {
   const { queryByText } = render(<ContactCard {...contact} />);
-  expect(queryByText(`Contact ${contact.firstName}`)).toBeNull();
+  expect(queryByText(`Contact ${contact.firstName}`)).not.toBeInTheDocument();
 });
 
 test('shows that contact is offline by default', () => {
@@ -93,90 +93,3 @@ test('contact card is clear when loading', () => {
   const { container } = render(<ContactCard {...contact} loading />);
   expect(container).toHaveTextContent('');
 });
-
-// test('contains contact menu when phone number is provided', () => {
-//   const { getByTestId } = render(<ContactCard {...contact} phone={phone} />);
-//   const menuButton = getByTestId('overflow-menu');
-//   expect(menuButton).not.toBeNull();
-// });
-
-// test('contains contact menu when email is provided', () => {
-//   const { getByTestId } = render(<ContactCard {...contact} email={email} />);
-//   const menuButton = getByTestId('overflow-menu');
-//   expect(menuButton).not.toBeNull();
-// });
-
-// test('contains online menu options when contact is online', () => {
-//   const { getByTestId } = render(<ContactCard {...contact} online />);
-//   const overflowMenu = getByTestId('overflow-menu');
-//   const overflowMenuToggleButton = getByTestId('overflow-toggle');
-//   fireEvent.click(overflowMenuToggleButton);
-//   const options = queryAllByText(overflowMenu, /chat/i);
-//   expect(options).toHaveLength(1);
-// });
-
-// test('contains phone menu options when phone number is provided', () => {
-//   const { getByTestId } = render(<ContactCard {...contact} phone={phone} />);
-//   const overflowMenu = getByTestId('overflow-menu');
-//   const overflowMenuToggleButton = getByTestId('overflow-toggle');
-//   fireEvent.click(overflowMenuToggleButton);
-//   const options = queryAllByText(overflowMenu, /call|sms/i);
-//   expect(options).toHaveLength(3);
-// });
-
-// test('contains email menu options when email is provided', () => {
-//   const { getByTestId } = render(<ContactCard {...contact} email={email} />);
-//   const overflowMenu = getByTestId('overflow-menu');
-//   const overflowMenuToggleButton = getByTestId('overflow-toggle');
-//   fireEvent.click(overflowMenuToggleButton);
-//   const options = queryAllByText(overflowMenu, /email/i);
-//   expect(options).toHaveLength(1);
-// });
-
-// test('invokes onChat', () => {
-//   const chatMock = jest.fn();
-//   const { getByTestId, getByText } = render(<ContactCard {...contact} online onChat={chatMock} />);
-//   fireEvent.click(getByTestId('overflow-toggle'));
-//   fireEvent.click(getByText(/chat/i));
-//   expect(chatMock).toHaveBeenCalled();
-// });
-
-// test('invokes onVoiceCall', () => {
-//   const voiceCallMock = jest.fn();
-//   const { getByTestId, getByText } = render(
-//     <ContactCard {...contact} phone={phone} onVoiceCall={voiceCallMock} />
-//   );
-//   fireEvent.click(getByTestId('overflow-toggle'));
-//   fireEvent.click(getByText(/voice call/i));
-//   expect(voiceCallMock).toHaveBeenCalled();
-// });
-
-// test('invokes onVideoCall', () => {
-//   const videoCallMock = jest.fn();
-//   const { getByTestId, getByText } = render(
-//     <ContactCard {...contact} phone={phone} onVideoCall={videoCallMock} />
-//   );
-//   fireEvent.click(getByTestId('overflow-toggle'));
-//   fireEvent.click(getByText(/video call/i));
-//   expect(videoCallMock).toHaveBeenCalledTimes(1);
-// });
-
-// test('invokes onSMS', () => {
-//   const sendSMSMock = jest.fn();
-//   const { getByTestId, getByText } = render(
-//     <ContactCard {...contact} phone={phone} onSMS={sendSMSMock} />
-//   );
-//   fireEvent.click(getByTestId('overflow-toggle'));
-//   fireEvent.click(getByText(/SMS/i));
-//   expect(sendSMSMock).toHaveBeenCalledTimes(1);
-// });
-
-// test('invokes onEmail', () => {
-//   const sendEmail = jest.fn();
-//   const { getByTestId, getByText } = render(
-//     <ContactCard {...contact} email={email} onEmail={sendEmail} />
-//   );
-//   fireEvent.click(getByTestId('overflow-toggle'));
-//   fireEvent.click(getByText(/email/i));
-//   expect(sendEmail).toHaveBeenCalledTimes(1);
-// });

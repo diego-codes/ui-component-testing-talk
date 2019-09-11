@@ -10,7 +10,7 @@ test('options are not visible by default', () => {
     </OverflowMenu>
   );
 
-  expect(queryByText(/Option/)).toBeNull();
+  expect(queryByText(/Option/)).not.toBeInTheDocument();
 });
 
 test('options are visible when toggle button is clicked', () => {
@@ -37,7 +37,7 @@ test('options are hidden when toggle button is clicked twice', () => {
 
   fireEvent.click(getByText('Open menu'));
   fireEvent.click(getByText('Open menu'));
-  expect(queryByText(/Option/)).toBeNull();
+  expect(queryByText(/Option/)).not.toBeInTheDocument();
 });
 
 test('options are hidden when the menu is open and the user clicks outside of it', () => {
@@ -50,7 +50,7 @@ test('options are hidden when the menu is open and the user clicks outside of it
 
   fireEvent.click(getByText('Open menu'));
   fireEvent.click(document.body);
-  expect(queryByText(/Option/)).toBeNull();
+  expect(queryByText(/Option/)).not.toBeInTheDocument();
 });
 
 test('menu options calls on click function when clicked', () => {
