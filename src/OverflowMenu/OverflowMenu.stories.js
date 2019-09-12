@@ -50,3 +50,16 @@ stories.add('with lots of items', () => (
     <MenuItem>Option 6</MenuItem>
   </OverflowMenu>
 ));
+
+stories.add('with long toggle text', () => (
+  <OverflowMenu
+    toggleText={text('toggleText', 'This is a long label that should be truncated')}
+    flipped={boolean('flipped')}
+    onOpen={action('onOpen')}
+    onClose={action('onClose')}
+  >
+    <MenuItem>Option 1</MenuItem>
+    <MenuItem>Option 2</MenuItem>
+    <MenuItem>Option 3</MenuItem>
+  </OverflowMenu>
+));

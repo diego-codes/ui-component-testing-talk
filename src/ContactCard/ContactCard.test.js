@@ -32,7 +32,7 @@ test('displays avatar when provided', () => {
 
 test('does not contain contact menu by default', () => {
   const { queryByText } = render(<ContactCard {...contact} />);
-  expect(queryByText(`Contact ${contact.firstName}`)).not.toBeInTheDocument();
+  expect(queryByText(/contact/i)).not.toBeInTheDocument();
 });
 
 test('shows that contact is offline by default', () => {
@@ -48,7 +48,7 @@ test('shows that contact is online', () => {
 test('user can start chat when user is online', () => {
   const onChatMock = jest.fn();
   const { getByText } = render(<ContactCard {...contact} online onChat={onChatMock} />);
-  fireEvent.click(getByText(`Contact ${contact.firstName}`));
+  fireEvent.click(getByText(/contact/i));
   fireEvent.click(getByText('Start chat'));
   expect(onChatMock).toHaveBeenCalledTimes(1);
 });
@@ -58,7 +58,7 @@ test('user can start a voice call when phone number is provided', () => {
   const { getByText } = render(
     <ContactCard {...contact} phone={phone} onVoiceCall={onVoiceCallMock} />
   );
-  fireEvent.click(getByText(`Contact ${contact.firstName}`));
+  fireEvent.click(getByText(/contact/i));
   fireEvent.click(getByText('Start voice call'));
   expect(onVoiceCallMock).toHaveBeenCalledTimes(1);
 });
@@ -68,7 +68,7 @@ test('user can start a video call when phone number is provided', () => {
   const { getByText } = render(
     <ContactCard {...contact} phone={phone} onVideoCall={onVideoCallMock} />
   );
-  fireEvent.click(getByText(`Contact ${contact.firstName}`));
+  fireEvent.click(getByText(/contact/i));
   fireEvent.click(getByText('Start video call'));
   expect(onVideoCallMock).toHaveBeenCalledTimes(1);
 });
@@ -76,7 +76,7 @@ test('user can start a video call when phone number is provided', () => {
 test('user can send an SMS message when phone number is provided', () => {
   const onSMSMock = jest.fn();
   const { getByText } = render(<ContactCard {...contact} phone={phone} onSMS={onSMSMock} />);
-  fireEvent.click(getByText(`Contact ${contact.firstName}`));
+  fireEvent.click(getByText(/contact/i));
   fireEvent.click(getByText('Send SMS'));
   expect(onSMSMock).toHaveBeenCalledTimes(1);
 });
@@ -84,7 +84,7 @@ test('user can send an SMS message when phone number is provided', () => {
 test('user can send an email message when email address is provided', () => {
   const onEmailMock = jest.fn();
   const { getByText } = render(<ContactCard {...contact} email={email} onEmail={onEmailMock} />);
-  fireEvent.click(getByText(`Contact ${contact.firstName}`));
+  fireEvent.click(getByText(/contact/i));
   fireEvent.click(getByText('Send email'));
   expect(onEmailMock).toHaveBeenCalledTimes(1);
 });
