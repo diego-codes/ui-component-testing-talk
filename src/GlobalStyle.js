@@ -10,6 +10,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Avenir Next', Helvetica, sans-serif;
     font-size: ${baseFontSize / 16}em;
     line-height: 1.2;
+    height: auto;
+    width: auto;
   }
 `;
 
