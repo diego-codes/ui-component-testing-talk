@@ -1,15 +1,18 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { boolean, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import Center from '../../.storybook/Center';
 
 import { OverflowMenu, MenuItem } from '.';
 
-const stories = storiesOf(OverflowMenu.name, module);
-stories.addDecorator(story => <Center>{story()}</Center>);
+const CenterDecorator = story => <Center>{story()}</Center>;
+export default {
+  component: OverflowMenu,
+  title: 'OverflowMenu',
+  decorators: [CenterDecorator],
+};
 
-stories.add('default', () => (
+export const base = () => (
   <OverflowMenu
     toggleText={text('toggleText', 'Open menu')}
     flipped={boolean('flipped')}
@@ -20,9 +23,9 @@ stories.add('default', () => (
     <MenuItem>Option 2</MenuItem>
     <MenuItem>Option 3</MenuItem>
   </OverflowMenu>
-));
+);
 
-stories.add('flipped', () => (
+export const flipped = () => (
   <OverflowMenu
     toggleText={text('toggleText', 'Open menu')}
     flipped={boolean('flipped', true)}
@@ -33,9 +36,9 @@ stories.add('flipped', () => (
     <MenuItem>Option 2</MenuItem>
     <MenuItem>Option 3</MenuItem>
   </OverflowMenu>
-));
+);
 
-stories.add('with lots of items', () => (
+export const withLotsOfItems = () => (
   <OverflowMenu
     toggleText={text('toggleText', 'Open menu')}
     flipped={boolean('flipped')}
@@ -49,9 +52,9 @@ stories.add('with lots of items', () => (
     <MenuItem>Option 5</MenuItem>
     <MenuItem>Option 6</MenuItem>
   </OverflowMenu>
-));
+);
 
-stories.add('with long toggle text', () => (
+export const withLongToggleText = () => (
   <OverflowMenu
     toggleText={text('toggleText', 'This is a long label that should be truncated')}
     flipped={boolean('flipped')}
@@ -62,4 +65,4 @@ stories.add('with long toggle text', () => (
     <MenuItem>Option 2</MenuItem>
     <MenuItem>Option 3</MenuItem>
   </OverflowMenu>
-));
+);

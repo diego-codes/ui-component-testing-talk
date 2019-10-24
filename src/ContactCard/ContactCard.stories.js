@@ -1,21 +1,25 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import { text, boolean } from '@storybook/addon-knobs';
 import Center from '../../.storybook/Center';
 
 import ContactCard from '.';
 
-const stories = storiesOf('ContactCard', module);
-stories.addDecorator(story => (
+const CenterDecorator = story => (
   <Center>
     <div style={{ width: '32em' }}>{story()}</div>
   </Center>
-));
+);
+
+export default {
+  component: ContactCard,
+  title: 'ContactCard',
+  decorators: [CenterDecorator],
+};
 
 const eventListeners = actions('onChat', 'onVoiceCall', 'onVideoCall', 'onSMS', 'onEmail');
 
-stories.add('default', () => (
+export const base = () => (
   <ContactCard
     image="/squidward.png"
     firstName={text('firstName', 'Squidward')}
@@ -28,9 +32,9 @@ stories.add('default', () => (
     loading={boolean('loading')}
     {...eventListeners}
   />
-));
+);
 
-stories.add('online', () => (
+export const online = () => (
   <ContactCard
     image="/krabs.png"
     firstName={text('firstName', 'Eugene')}
@@ -43,9 +47,9 @@ stories.add('online', () => (
     loading={boolean('loading')}
     {...eventListeners}
   />
-));
+);
 
-stories.add('with phone number', () => (
+export const withPhoneNumber = () => (
   <ContactCard
     image="/plankton.png"
     firstName={text('firstName', 'Sheldon')}
@@ -58,9 +62,9 @@ stories.add('with phone number', () => (
     loading={boolean('loading')}
     {...eventListeners}
   />
-));
+);
 
-stories.add('with email', () => (
+export const withEmail = () => (
   <ContactCard
     image="/sandy.png"
     firstName={text('firstName', 'Sandy')}
@@ -73,9 +77,9 @@ stories.add('with email', () => (
     loading={boolean('loading')}
     {...eventListeners}
   />
-));
+);
 
-stories.add('online with all contact info', () => (
+export const onlineWithAllContactInfo = () => (
   <ContactCard
     image="/spongebob.png"
     firstName={text('firstName', 'SpongeBob')}
@@ -88,6 +92,6 @@ stories.add('online with all contact info', () => (
     loading={boolean('loading')}
     {...eventListeners}
   />
-));
+);
 
-stories.add('loading', () => <ContactCard loading={boolean('loading', true)} />);
+export const loading = () => <ContactCard loading={boolean('loading', true)} />;
