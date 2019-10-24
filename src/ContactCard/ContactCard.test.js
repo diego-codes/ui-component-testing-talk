@@ -91,5 +91,5 @@ test('user can send an email message when email address is provided', () => {
 
 test('contact card is clear when loading', () => {
   const { container } = render(<ContactCard {...contact} loading />);
-  expect(container).toHaveTextContent('');
+  expect(container).not.toHaveTextContent();
 });
